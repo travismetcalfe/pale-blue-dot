@@ -3,6 +3,24 @@ A simple application around the Pale Blue Dot project, to make it easier to adop
 More info about the Pale Blue Dot project:
 http://whitedwarf.org/palebluedot/
 
+This project is not in any way associated with Pale Blue Dot; it's just me. But who knows that might change.
+
+At the moment, it doesn't do anything useful except show a list of stars. Here's a list of possible improvements (for I which I don't have time, so patches are welcome):
+
+* search by other criteria, e.g. 
+** range of brightness (http://www.spaceacademy.net.au/library/notes/magntude.htm)
+** not adopted yet
+** region
+* google sky mashup
+* Facebook / Etc integration, e.g.
+** show your friend's stars on map
+** find a bright star near your friends
+* search for cool astronomic coincidences, e.g.
+** eclipsed by Jupiter on your birthday
+* etc, etc
+
+Installation:
+
 Step 1:
 Install ruby on rails on your machine. 
 
