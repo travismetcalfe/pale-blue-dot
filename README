@@ -1,0 +1,31 @@
+A simple application around the Pale Blue Dot project, to make it easier to adopt a star.
+
+More info about the Pale Blue Dot project:
+http://whitedwarf.org/palebluedot/
+
+Step 1:
+Install ruby on rails on your machine. 
+
+Download the source. 
+
+Run:
+sudo rake gems:install
+
+Step 2:
+Create a MySQL database:
+
+create database kepler;
+grant all privileges on kepler.* to kepler@localhost identified by 'kepler';
+
+Create the stars table:
+rake db:mgirate
+
+Import the stars:
+mysql kepler -u kepler -p < import-stars.sql
+
+Run server:
+script/server
+
+Point your browser to:
+ http://localhost:3000/
+

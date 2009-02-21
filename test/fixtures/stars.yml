@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: MyString
+  coordinate: MyString
+  mag: 9.99
+  teff: 9.99
+  logg: 9.99
+  mh: 9.99
+  adopted_by: MyString
+
+two:
+  number: MyString
+  coordinate: MyString
+  mag: 9.99
+  teff: 9.99
+  logg: 9.99
+  mh: 9.99
+  adopted_by: MyString

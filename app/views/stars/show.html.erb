@@ -1,0 +1,38 @@
+<p>
+  <b>Number:</b>
+  <%=h @star.number %>
+</p>
+
+<p>
+  <b>Coordinate:</b>
+  <%=h @star.coordinate %>
+</p>
+
+<p>
+  <b>Mag:</b>
+  <%=h @star.mag %>
+</p>
+
+<p>
+  <b>Teff:</b>
+  <%=h @star.teff %>
+</p>
+
+<p>
+  <b>Logg:</b>
+  <%=h @star.logg %>
+</p>
+
+<p>
+  <b>Mh:</b>
+  <%=h @star.mh %>
+</p>
+
+<p>
+  <b>Adopted by:</b>
+  <%=h @star.adopted_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_star_path(@star) %> |
+<%= link_to 'Back', stars_path %>

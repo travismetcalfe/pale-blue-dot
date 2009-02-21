@@ -1,0 +1,40 @@
+<h1>Listing stars</h1>
+
+<% form_tag request.path, :method => 'get' do %>
+  <% content_tag :label do %>
+    Adopted by:
+    <%= text_field_tag :search, params[:search] %>
+  <% end %>
+<% end %>
+
+<%= will_paginate @posts %>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Coordinate</th>
+    <th>Mag</th>
+    <th>Teff</th>
+    <th>Logg</th>
+    <th>Mh</th>
+    <th>Adopted by</th>
+  </tr>
+
+<% for star in @stars %>
+  <tr>
+    <td><%=h star.number %></td>
+    <td><%=h star.coordinate %></td>
+    <td><%=h star.mag %></td>
+    <td><%=h star.teff %></td>
+    <td><%=h star.logg %></td>
+    <td><%=h star.mh %></td>
+    <td><%=h star.adopted_by %></td>
+    <td><%= link_to 'Show', star %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @posts %>
+
