@@ -7,11 +7,6 @@ This project is not in any way associated with Pale Blue Dot; it's just me. But 
 
 At the moment, it doesn't do anything useful except show a list of stars. Here's a list of possible improvements (for I which I don't have time, so patches are welcome):
 
-* search by other criteria, e.g. 
-** range of brightness (http://www.spaceacademy.net.au/library/notes/magntude.htm)
-** not adopted yet
-** region
-* google sky mashup
 * Facebook / Etc integration, e.g.
 ** show your friend's stars on map
 ** find a bright star near your friends
@@ -43,6 +38,10 @@ wget http://whitedwarf.org/palebluedot/KIC.txt
 
 Import the stars:
 mysql kepler -u kepler -p < import-stars.sql
+
+Get a Google Maps API key. 
+
+Copy config/app_config.yml.example to app_config.yml and add your key to this file.
 
 Run server:
 script/server

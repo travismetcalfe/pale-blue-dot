@@ -13,7 +13,7 @@ Released for free under a Creative Commons Attribution 2.5 License
   <title>Stars: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
-<body>
+<body onload="initialize()" onunload="GUnload()">
 
 <div id="header">
 	<h1>Adopt a Star Wizard</h1>

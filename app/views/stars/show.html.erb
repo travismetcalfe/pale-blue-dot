@@ -4,9 +4,36 @@
 </p>
 
 <p>
-  <b>Coordinate:</b>
-  <%=h @star.coordinate %>
+  <b>Coordinates:</b> <br />
+  <i>R.A. = sky coordinate for longitude in hours, minutes, seconds:</i>
+  <%=h @star.lon_d %>° <%=h @star.lon_m %>′  <%=h @star.lon_s %>" <br />
+  <i>Dec. = sky coordinate for latitude in degrees, arcminutes, arcseconds</i>
+  <%=h @star.lat_d %>° <%=h @star.lat_m %>′  <%=h @star.lat_s %>" <br />
+  <i>Decimal lat, lon: <%=h @star.latitude %>, <%=h @star.longitude %></i>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false
+    &amp;key=<%= AppConfig.google_maps_api_key %>"
+    type="text/javascript">
+  </script>
+ <script type="text/javascript">
+    
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map_canvas"));
+        map.setCenter(new GLatLng(<%= @star.latitude %>, <%= @star.longitude %>), 13);
+        map.setMapType(G_SKY_VISIBLE_MAP);
+ 
+        var point = new GLatLng(<%= @star.latitude %>, <%= @star.longitude %>);
+        map.addOverlay(new GMarker(point));
+
+        map.addControl(new GLargeMapControl());
+      }
+    }
+
+    </script>
+
+
 </p>
+ <div id="map_canvas" style="width: 500px; height: 300px"></div>
 
 <p>
   <b>Mag:</b>

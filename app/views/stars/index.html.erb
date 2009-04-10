@@ -32,13 +32,12 @@
   <% for star in @stars %>
     <tr>
       <td><%=h star.number %></td>
-      <td><%=h star.coordinate %></td>
       <td><%=h star.mag %></td>
       <td><%=h star.teff %></td>
       <td><%=h star.logg %></td>
       <td><%=h star.mh %></td>
       <td><%=h star.adopted_by %></td>
-      <td><%= link_to 'Show', star %></td>
+      <td><%= link_to 'Details', star %></td>
     </tr>
   <% end %>
   </table>
