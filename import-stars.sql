@@ -1,4 +1,4 @@
-load data local infile 'KIC.txt' into table stars
+load data local infile 'KIC.txt' REPLACE into table stars
 IGNORE 16 LINES
 (@var1)
 SET number=SUBSTR(@var1,1,13),

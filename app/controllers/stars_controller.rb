@@ -2,7 +2,9 @@ class StarsController < ApplicationController
   # GET /stars
   # GET /stars.xml
   def index
-    @stars = Star.search(params[:search], params[:page])
+    @search = Search.new(params[:search])
+
+    @stars = Star.search(@search, params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

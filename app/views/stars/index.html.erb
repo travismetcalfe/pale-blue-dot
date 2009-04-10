@@ -1,13 +1,18 @@
 <h1>Listing stars</h1>
 
-<% form_tag request.path, :method => 'get' do %>
-  <% content_tag :label do %>
-    Adopted by:
-    <%= text_field_tag :search, params[:search] %>
-  <% end %>
+<%- form_for :search, @search, :url => { :action => "index" }, :html => {:method => :get} do |f| -%>
+        <%= f.error_messages %>
+        Adopted by (name): <%= f.text_field :name %>  <br />
+        <%= f.check_box :only_available %>  Only available stars? <br />
+        <%= f.check_box :brightness %>  Order by brightness: 
+          Bright first:<%= f.radio_button :brightness_order, :asc %> Faint first:
+          <%= f.radio_button :brightness_order, :desc %>
+        <br />
+        <%= f.submit "Search" %> 
 <% end %>
 
-<%= will_paginate @posts %>
+
+<%= will_paginate @stars %>
 
 <table>
   <tr>
@@ -36,5 +41,5 @@
 
 <br />
 
-<%= will_paginate @posts %>
+<%= will_paginate @stars %>
 
