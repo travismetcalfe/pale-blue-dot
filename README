@@ -21,15 +21,15 @@ At the moment, it doesn't do anything useful except show a list of stars. Here's
 
 Installation:
 
-Step 1:
 Install ruby on rails on your machine. 
+
+Install MySQL on your machine. Also install development files, e.g. libmysqlclient15-dev
 
 Download the source. 
 
 Run:
 sudo rake gems:install
 
-Step 2:
 Create a MySQL database:
 
 create database kepler;
@@ -37,6 +37,9 @@ grant all privileges on kepler.* to kepler@localhost identified by 'kepler';
 
 Create the stars table:
 rake db:mgirate
+
+Download the stars:
+wget http://whitedwarf.org/palebluedot/KIC.txt
 
 Import the stars:
 mysql kepler -u kepler -p < import-stars.sql
