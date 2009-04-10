@@ -2,3 +2,5 @@
 log/*
 KIC.txt
 config/app_config.yml
+config/database.yml
+vendor/gems
