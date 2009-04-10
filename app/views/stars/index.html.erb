@@ -1,45 +1,49 @@
-<h1>Listing stars</h1>
-
+<div id="colOne">
 <%- form_for :search, @search, :url => { :action => "index" }, :html => {:method => :get} do |f| -%>
         <%= f.error_messages %>
-        Adopted by (name): <%= f.text_field :name %>  <br />
+        Adopted by (name): <%= f.text_field :name, :size => 15, :style => "background-color:black; color:white; border-color: #FE4E00;" %>  <br />
         <%= f.check_box :only_available %>  Only available stars? <br />
-        <%= f.check_box :brightness %>  Order by brightness: 
-          Bright first:<%= f.radio_button :brightness_order, :asc %> Faint first:
-          <%= f.radio_button :brightness_order, :desc %>
+        <dl>
+          <%= f.check_box :brightness %>  Order by brightness:
+          <dd><%= f.radio_button :brightness_order, :asc %> bright first</dd>
+          <dd><%= f.radio_button :brightness_order, :desc %> faint first</dd>
+        </dl>
         <br />
-        <%= f.submit "Search" %> 
+        <%= f.submit "Search", :style => "background-color:black; color:white; border-color: #FE4E00" %>
 <% end %>
+</div>
 
+<div id="colTwo">
+  <h2>Listing Stars</h2>
 
-<%= will_paginate @stars %>
+  <%= will_paginate @stars %>
 
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Coordinate</th>
-    <th>Mag</th>
-    <th>Teff</th>
-    <th>Logg</th>
-    <th>Mh</th>
-    <th>Adopted by</th>
-  </tr>
+  <table>
+    <tr>
+      <th>Number</th>
+      <th>Coordinate</th>
+      <th>Mag</th>
+      <th>Teff</th>
+      <th>Logg</th>
+      <th>Mh</th>
+      <th>Adopted by</th>
+    </tr>
 
-<% for star in @stars %>
-  <tr>
-    <td><%=h star.number %></td>
-    <td><%=h star.coordinate %></td>
-    <td><%=h star.mag %></td>
-    <td><%=h star.teff %></td>
-    <td><%=h star.logg %></td>
-    <td><%=h star.mh %></td>
-    <td><%=h star.adopted_by %></td>
-    <td><%= link_to 'Show', star %></td>
-  </tr>
-<% end %>
-</table>
+  <% for star in @stars %>
+    <tr>
+      <td><%=h star.number %></td>
+      <td><%=h star.coordinate %></td>
+      <td><%=h star.mag %></td>
+      <td><%=h star.teff %></td>
+      <td><%=h star.logg %></td>
+      <td><%=h star.mh %></td>
+      <td><%=h star.adopted_by %></td>
+      <td><%= link_to 'Show', star %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= will_paginate @stars %>
-
+  <%= will_paginate @stars %>
+</div>

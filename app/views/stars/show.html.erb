@@ -29,10 +29,13 @@
 </p>
 
 <p>
-  <b>Adopted by:</b>
-  <%=h @star.adopted_by %>
+  <% if @star.adopted_by.empty? %>
+  This star is still avaible*. Click <%= link_to "here", "http://whitedwarf.org/palebluedot/index.html#Adopt" %> to adopt it. Use star # <%= @star.number %></p>
+<p>* = This database is updated every 24 hours. Check <%= link_to "here", "http://whitedwarf.org/palebluedot/text.html" %> for the most recent status. Use the search function in your browser to look for "<%= @star.number %>"</p>
+  <% else %>
+    <b>Adopted by:</b>
+    <%=h @star.adopted_by %>
+  <% end %>
 </p>
 
 
-<%= link_to 'Edit', edit_star_path(@star) %> |
-<%= link_to 'Back', stars_path %>

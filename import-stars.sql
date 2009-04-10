@@ -1,7 +1,8 @@
 load data local infile 'KIC.txt' REPLACE into table stars
 IGNORE 16 LINES
 (@var1)
-SET number=SUBSTR(@var1,1,13),
+SET id=SUBSTR(@var1, 4,13),
+number=SUBSTR(@var1,1,13),
 coordinate=SUBSTR(@var1,17,24),
 mag=SUBSTR(@var1,45,5),
 teff=SUBSTR(@var1,54,4),

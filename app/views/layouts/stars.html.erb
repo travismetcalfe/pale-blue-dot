@@ -1,6 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!--
+Design based on Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+-->
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -9,9 +15,23 @@
 </head>
 <body>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<div id="header">
+	<h1>Adopt a Star Wizard</h1>
+	<h2>Menu</h2>
+	<ul>
+		<li class="first"><a href="/" title="">Home</a></li>
+		<li><a href="http://whitedwarf.org/palebluedot/" >Official Site</a></li>
+		<li><a href="http://github.com/Sjors/pale-blue-dot/tree/master">Source Code</a></li>
+		<li><a href="mailto:sjors@sprovoost.nl" >Contact</a></li>
+	</ul>
+</div>
 
-<%= yield  %>
+<div id="content">
+  <p style="color: green"><%= flash[:notice] %></p>
+  
+  <%= yield  %>
 
+  <div id="footer">
+  </div>
 </body>
 </html>

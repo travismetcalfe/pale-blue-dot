@@ -1,3 +1,4 @@
+/* Original 
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
@@ -16,11 +17,195 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
+*/
+
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
   display: table;
 }
+
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	background: #000000;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #E7E7E7;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+}
+
+h1 { font-size: 34px; }
+
+h2 {
+	margin-bottom: 10px;
+	padding: 0 0 22px 0;
+	font-size: 24px;
+	background: #000000 url(../images/img3.gif) repeat-x left bottom;
+}
+
+h3 {
+	padding: 0 0 22px 0;
+	font-size: 13px;
+	background: #000000 url(../images/img3.gif) repeat-x left bottom;
+}
+
+p {
+	margin-top: 0;
+	text-align: justify;
+	line-height: 160%;
+}
+
+a {
+	color: #FE4E00;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.list li {
+	padding: 5px 0;
+	background: url(../images/img5.gif) repeat-x;
+}
+
+.list li.first {
+	background: none;
+}
+
+/* Header */
+
+#header {
+	width: 681px;
+	margin: 0 auto;
+	padding: 40px 0 0 13px;
+	height: 90px;
+	background: url(../images/img1.gif) repeat-x left bottom;
+}
+
+#header h1 {
+	float: left;
+}
+
+#header h2 {
+	display: none;
+}
+
+#header ul {
+	float: right;
+	margin: 0;
+	padding: 15px 0 0 0;
+	list-style: none;
+}
+
+#header li {
+	display: inline;
+}
+
+#header a {
+	display: block;
+	float: left;
+	padding: 0 14px 0 20px;
+	background: url(../images/img2.gif) no-repeat left center;
+	text-decoration: none;
+	font: bold 12px Georgia, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+}
+
+#header a:hover {
+	text-decoration: underline;
+}
+
+#header .first a {
+	background: none;
+}
+
+/* Content */
+
+#content {
+	width: 694px;
+	margin: 0 auto;
+}
+
+#colOne {
+	float: left;
+	width: 109px;
+	padding: 0 0 0 21px;
+}
+
+#colOne dd {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+#colTwo {
+	float: right;
+	width: 464px;
+	padding: 0 29px 0 0;
+}
+
+#colTwo table {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 2px;
+	border-style: dotted dotted dotted dotted;
+	border-color: #FE4E00 #FE4E00 #FE4E00 #FE4E00;
+	border-collapse: separate;
+	background-color: rgb(1, 1, 1);
+}
+
+#colTwo table th {
+	border-width: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	border-style: inset inset inset inset;
+	border-color: rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138);
+	background-color: ;
+	-moz-border-radius: 3px 3px 3px 3px;
+}
+#colTwo table td {
+	border-width: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	border-style: inset inset inset inset;
+	border-color: rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138);
+	background-color: ;
+	-moz-border-radius: 3px 3px 3px 3px;
+}
+
+/* Footer */
+
+#footer {
+	clear: both;
+	width: 694px;
+	margin: 0 auto;
+	padding: 30px 0 0 0;
+}
+
+#footer p {
+	padding: 20px 0 0 0;
+	background: url(../images/img4.gif) repeat-x;
+	text-align: center;
+	color: #8A8A8A;
+}
+
+
+
+/* Rails stuff */
 
 #errorExplanation {
   width: 400px;
@@ -51,4 +236,5 @@ a:hover { color: #fff; background-color:#000; }
   font-size: 12px;
   list-style: square;
 }
+
 
