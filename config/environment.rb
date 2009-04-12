@@ -1,8 +1,12 @@
+ENV["RAILS_ENV"] = "production"
 # Be sure to restart your server when you modify this file
 
 # Uncomment below to force Rails into production mode when
 # you don't control web/app server and can't set it the proper way
 # ENV['RAILS_ENV'] ||= 'production'
+
+# Little hack to make gems work
+ENV['GEM_PATH'] ||= "gempath"
 
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
@@ -29,7 +33,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   
   config.gem "capistrano-ext", :lib => "capistrano"
-  #config.gem 'mysql'
+  #config.gem 'mysql', :lib => "mysql"
 
   config.gem 'mislav-will_paginate', :version => '~> 2.2.3', :lib => 'will_paginate', :source => 'http://gems.github.com'
 
