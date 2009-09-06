@@ -1,4 +1,5 @@
 *.swp
+adopt.txt
 log/*
 KIC.txt
 config/app_config.yml
