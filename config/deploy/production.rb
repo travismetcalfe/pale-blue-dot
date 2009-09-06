@@ -3,7 +3,7 @@
 #############################################################
 
 set :application, "pale_blue_dot"
-set :deploy_to, "/var/www/pale-blue-dot.sprovoost.nl"
+set :deploy_to, "/home/sjors/wizard.dreamhosters.com"
 
 #############################################################
 #	Settings
@@ -19,7 +19,7 @@ set :rails_env, "production"
 #	Servers
 #############################################################
 
-set :domain, "sprovoost.nl"
+set :domain, "grizzlies.dreamhost.com"
 server domain, :app, :web
 role :db, domain, :primary => true
 
