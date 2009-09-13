@@ -3,7 +3,7 @@
 #############################################################
 
 set :application, "pale_blue_dot"
-set :deploy_to, "/home/sjors/wizard.dreamhosters.com"
+set :deploy_to, "/home/sjors/wizard.whitedwarf.org"
 
 #############################################################
 #	Settings
