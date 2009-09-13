@@ -12,4 +12,4 @@ mag=SUBSTR(@var1,45,5),
 teff=SUBSTR(@var1,54,4),
 logg=SUBSTR(@var1,61,5),
 mh=SUBSTR(@var1,69,5),
-adopted_by=SUBSTR(@var1,78,23);
+adopted_by=SUBSTR(@var1,78);
