@@ -2,6 +2,7 @@
 <%- form_for :search, @search, :url => { :action => "index" }, :html => {:method => :get} do |f| -%>
         <%= f.error_messages %>
         Adopted by (name): <%= f.text_field :name, :size => 15, :style => "background-color:black; color:white; border-color: #FE4E00;" %>  <br />
+        Star #: <%= f.text_field :number, :size => 10, :style => "background-color:black; color:white; border-color: #FE4E00;" %>  <br />
         <%= f.check_box :only_available %>  Only available stars? <br />
         <dl>
           <%= f.check_box :brightness %>  Order by brightness:
