@@ -1,9 +1,9 @@
 class Star < ActiveRecord::Base
   def self.search(search, page)
     if search.only_available
-      conditions = ['adopted_by = ? AND number LIKE ?', "", "%" + search.number + "%"]
+      conditions = ['adopted_by = ? AND number LIKE ?', "", "%" + search.number.to_s + "%"]
     else 
-      conditions = ['adopted_by like ? AND number LIKE ?', "%#{search.name}%", "%" + search.number + "%"]
+      conditions = ['adopted_by like ? AND number LIKE ?', "%#{search.name}%", "%" + search.number.to_s + "%"]
     end
 
     order = "number"
