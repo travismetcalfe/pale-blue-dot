@@ -41,6 +41,7 @@ namespace :deploy do
   desc "Fix database.yml, environment.rb, secret and set environment"
   task :after_update_code do
     run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -s #{shared_path}/config/app_config.yml #{release_path}/config/app_config.yml"
     run "ln -s #{shared_path}/secret #{release_path}/secret"
     run "ln -s #{shared_path}/vendor/gems #{release_path}/vendor/gems"
     
