@@ -42,6 +42,7 @@ namespace :deploy do
   task :after_update_code do
     run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -s #{shared_path}/secret #{release_path}/secret"
+    run "ln -s #{shared_path}/vendor/gems #{release_path}/vendor/gems"
     
     # Set rails environment
     tmp = "#{current_release}/tmp/environment.rb"  
