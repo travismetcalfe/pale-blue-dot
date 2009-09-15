@@ -15,4 +15,6 @@ logg=SUBSTR(@var1,61,5),
 mh=SUBSTR(@var1,69,5),
 adopted_by=SUBSTR(@var1,78);
 
+DELETE FROM stars WHERE number = " ";
 DELETE FROM stars WHERE number = "-------------";
+
