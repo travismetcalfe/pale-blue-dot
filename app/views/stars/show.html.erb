@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <p>
   <b>Number:</b>
   <%=h @star.number %>
@@ -5,28 +14,96 @@
 
 <p>
   <b>Coordinates:</b> <br />
-  <i>R.A. = sky coordinate for longitude in hours, minutes, seconds:</i>
-  <%=h @star.lon_d %>° <%=h @star.lon_m %>′  <%=h @star.lon_s %>" <br />
-  <i>Dec. = sky coordinate for latitude in degrees, arcminutes, arcseconds</i>
+  <i>R.A. = sky coordinate for longitude: </i>
+  <%=h @star.lon_d %>h <%=h @star.lon_m %>m  <%=h @star.lon_s %>s <br />
+  <i>Dec. = sky coordinate for latitude: </i>
   <%=h @star.lat_d %>° <%=h @star.lat_m %>′  <%=h @star.lat_s %>" <br />
   <i>Decimal lat, lon: <%=h @star.latitude %>, <%=h @star.longitude %></i>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false
-    &amp;key=<%= AppConfig.google_maps_api_key %>"
-    type="text/javascript">
-  </script>
- <script type="text/javascript">
-    
-    function initialize() {
-      if (GBrowserIsCompatible()) {
-        var map = new GMap2(document.getElementById("map_canvas"));
-        map.setCenter(new GLatLng(<%= @star.latitude %>, <%= @star.longitude %>), 13);
-        map.setMapType(G_SKY_VISIBLE_MAP);
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!--
+<script src="http://maps.google.com/maps/api/js?key=<%= AppConfig.google_maps_api_key %>&amp;sensor=false" type="text/javascript"></script>
+-->
+  <script type="text/javascript"> 
+    var mapTypes = {};
+    mapTypes['sky'] = {
+      getTileUrl: function(coord, zoom) {
+        return getHorizontallyRepeatingTileUrl(coord, zoom, function(coord, zoom) {
+          return "http://mw1.google.com/mw-planetary/sky/skytiles_v1/" +
+                 coord.x + "_" + coord.y + '_' + zoom + '.jpg';
  
-        var point = new GLatLng(<%= @star.latitude %>, <%= @star.longitude %>);
-        map.addOverlay(new GMarker(point));
+        });
+      },
+      tileSize: new google.maps.Size(256, 256),
+      isPng: false,
+      maxZoom: 13,
+      radius: 57.2957763671875,
+      name: 'Sky',
+      credit: 'Image Credit: SDSS, DSS Consortium, NASA/ESA/STScI'
+    };
 
-        map.addControl(new GLargeMapControl());
+    function getHorizontallyRepeatingTileUrl(coord, zoom, urlfunc) {
+      var y = coord.y;
+      var x = coord.x;
+ 
+      var tileRange = 1 << zoom;
+ 
+      if (y < 0 || y >= tileRange) {
+        return null;
       }
+ 
+      if (x < 0 || x >= tileRange) {
+        x = (x % tileRange + tileRange) % tileRange;
+      }
+ 
+      return urlfunc({x:x,y:y}, zoom)
+    }
+ 
+    var map;
+    var mapTypeIds = [];
+ 
+    var creditNode = document.createElement('div');
+    creditNode.id = 'credit-control';
+    creditNode.style.fontSize = '11px';
+    creditNode.style.fontFamily = 'Arial, sans-serif';
+    creditNode.style.margin = '0 2px 2px 0';
+    creditNode.style.whitespace = 'nowrap';
+    creditNode.index = 0;
+ 
+    function setCredit(credit) {
+      creditNode.innerHTML = credit + ' -';
+    }
+
+    function initialize() {
+ 
+      // push all mapType keys in to a mapTypeId array to set in the mapTypeControlOptions
+      for (var key in mapTypes) {
+        mapTypeIds.push(key);
+      }
+ 
+      var mapOptions = {
+        zoom: 13,
+        center: new google.maps.LatLng(<%= @star.latitude %>, <%= @star.longitude %>),
+	disableDefaultUI: true,
+        zoomControl: true
+      };
+      map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+      var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(<%= @star.latitude %>, <%= @star.longitude %>),
+      map: map,
+      });
+
+      map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(creditNode);
+      for (key in mapTypes) {
+        map.mapTypes.set(key, new google.maps.ImageMapType(mapTypes[key]));
+      }
+      google.maps.event.addListener(map, 'maptypeid_changed', function() {
+        setCredit(mapTypes[map.getMapTypeId()].credit);
+      });
+ 
+      // start with the sky map type
+      map.setMapTypeId('sky');
+
     }
 
     </script>
@@ -35,33 +112,37 @@
 </p>
  <div id="map_canvas" style="width: 500px; height: 300px"></div>
 
-<p>
-  <b>Mag:</b>
+<table width="500px"><tr>
+<td>
+  <b>Mag.:</b>
   <%=h @star.mag %>
-</p>
+</td>
 
-<p>
+<td>
   <b>Teff:</b>
   <%=h @star.teff %>
-</p>
+</td>
 
-<p>
-  <b>Logg:</b>
+<td>
+  <b>log g:</b>
   <%=h @star.logg %>
-</p>
+</td>
 
-<p>
-  <b>Mh:</b>
+<td>
+  <b>[M/H]:</b>
   <%=h @star.mh %>
-</p>
+</td>
+
+</tr></table>
+<br>
 
 <p>
   <% if @star.adopted_by.empty? %>
-  This star is still avaible*. Click <%= link_to "here", "http://whitedwarf.org/palebluedot/index.html#Adopt" %> to adopt it. Use star # <%= @star.number %></p>
-<p>* = This database is updated every 24 hours. Check <%= link_to "here", "http://whitedwarf.org/palebluedot/text.html" %> for the most recent status. Use the search function in your browser to look for "<%= @star.number %>"</p>
+  This star is still <a href="http://whitedwarf.org/palebluedot" target="_new">available</a>.
   <% else %>
     <b>Adopted by:</b>
     <%=h @star.adopted_by %>
+<table><tr><td><div class="fb-share-button" data-type="button_count"></div></td><td><a href="https://twitter.com/share" class="twitter-share-button" data-via="adopt_a_star">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table>
   <% end %>
 </p>
 

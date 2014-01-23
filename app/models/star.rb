@@ -2,8 +2,14 @@ class Star < ActiveRecord::Base
   def self.search(search, page)
     if search.only_available
       conditions = ['adopted_by = ? AND number LIKE ?', "", "%" + search.number.to_s + "%"]
+      if search.flag
+        conditions = ['flag = ? AND adopted_by = ? AND number LIKE ?', search.flag_type, "", "%" + search.number.to_s + "%"]
+      end
     else 
-      conditions = ['adopted_by like ? AND number LIKE ?', "%#{search.name}%", "%" + search.number.to_s + "%"]
+      conditions = ['adopted_by LIKE ? AND number LIKE ?', "%#{search.name}%", "%" + search.number.to_s + "%"]
+      if search.flag
+        conditions = ['flag = ? AND adopted_by LIKE ? AND number LIKE ?', search.flag_type, "%#{search.name}%", "%" + search.number.to_s + "%"]
+      end
     end
 
     order = "number"
@@ -11,7 +17,7 @@ class Star < ActiveRecord::Base
       order = "mag " + search.brightness_order
     end
 
-    paginate :per_page => 30, :page => page,
+    paginate :per_page => 15, :page => page,
              :conditions => conditions, :order => order
   end
 

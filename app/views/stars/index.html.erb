@@ -1,31 +1,38 @@
 <div id="colOne">
 <%- form_for :search, @search, :url => { :action => "index" }, :html => {:method => :get} do |f| -%>
         <%= f.error_messages %>
-        Adopted by (name): <%= f.text_field :name, :size => 15, :style => "background-color:black; color:white; border-color: #FE4E00;" %>  <br />
-        Star #: <%= f.text_field :number, :size => 10, :style => "background-color:black; color:white; border-color: #FE4E00;" %>  <br />
-        <%= f.check_box :only_available %>  Only available stars? <br />
+        Adopted by: <%= f.text_field :name, :size => 15, :style => "background-color:white; color:blue; border-color: #000000;" %>  <br />
+        Star #: <%= f.text_field :number, :size => 10, :style => "background-color:white; color:blue; border-color: #000000;" %>  <br />
+        <%= f.check_box :only_available %> Available <br />
         <dl>
-          <%= f.check_box :brightness %>  Order by brightness:
-          <dd><%= f.radio_button :brightness_order, :asc %> bright first</dd>
-          <dd><%= f.radio_button :brightness_order, :desc %> faint first</dd>
+          <%= f.check_box :flag %> Type:
+          <dd><%= f.radio_button :flag_type, "1" %> target</dd>
+          <dd><%= f.radio_button :flag_type, "2" %> double</dd>
+          <dd><%= f.radio_button :flag_type, "3" %> suspect</dd>
+          <dd><%= f.radio_button :flag_type, "4" %> planet</dd>
+        </dl>
+        <dl>
+          <%= f.check_box :brightness %> Order:
+          <dd><%= f.radio_button :brightness_order, :asc %> brightest</dd>
+          <dd><%= f.radio_button :brightness_order, :desc %> faintest</dd>
         </dl>
         <br />
-        <%= f.submit "Search", :style => "background-color:black; color:white; border-color: #FE4E00" %>
+        <%= f.submit "Search", :style => "background-color:white; color:blue; border-color: #000000" %>
 <% end %>
 </div>
 
 <div id="colTwo">
-  <h2>Listing Stars</h2>
+  <h2>Kepler Stars</h2>
 
   <%= will_paginate @stars %>
 
   <table>
     <tr>
       <th>Number</th>
-      <th>Mag</th>
+      <th>Mag.</th>
       <th>Teff</th>
-      <th>Logg</th>
-      <th>Mh</th>
+      <th>log g</th>
+      <th>[M/H]</th>
       <th>Adopted by</th>
     </tr>
 
@@ -37,7 +44,7 @@
       <td><%=h star.logg %></td>
       <td><%=h star.mh %></td>
       <td><%=h star.adopted_by %></td>
-      <td><%= link_to 'Details', star %></td>
+      <td><%= link_to 'Sky Map', star %></td>
     </tr>
   <% end %>
   </table>
