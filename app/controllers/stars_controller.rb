@@ -22,4 +22,17 @@ class StarsController < ApplicationController
       format.xml  { render :xml => @star }
     end
   end
+
+  # GET /stars/1/nearest
+  def nearest
+     @star = Star.find(params[:id])
+
+     # Placeholder, this just fetches the first 15 stars in the database:
+     @nearby_stars = Star.find(:all, :limit => 15)
+
+      respond_to do |format|
+        format.html # nearest.html.erb
+      format.xml  { render :xml => @star }
+      end
+  end
 end
