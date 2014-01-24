@@ -27,8 +27,6 @@ class Star < ActiveRecord::Base
     
     # This returns it as hr:minute:sec
     #return self.lat_d.to_s + ":" + self.lat_m.to_s + ":" + self.lat_s.to_s
-
-
   end
 
   def longitude
@@ -37,4 +35,9 @@ class Star < ActiveRecord::Base
     #
     #return self.lon_d.to_s + ":" + self.lon_m.to_s + ":" + self.lon_s.to_s
   end
+
+  def nearby
+    Star.find(:all, :limit => 10, :order => "id")
+  end
+
 end
