@@ -26,7 +26,8 @@ class StarsController < ApplicationController
   # GET /stars/nearest/1
   # GET /stars/nearest/1.xml
   def nearest
-     @nearby_stars = Star.find(:all, :limit => 10, :order => "id")
+    @star = Star.find(params[:id])
+    @nearby_stars = @star.nearby
 
       respond_to do |format|
         format.html # nearest.html.erb
