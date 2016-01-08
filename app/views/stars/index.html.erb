@@ -1,7 +1,7 @@
 <div id="colOne">
 <%- form_for :search, @search, :url => { :action => "index" }, :html => {:method => :get} do |f| -%>
         <%= f.error_messages %>
-        Adopted by: <%= f.text_field :name, :size => 15, :style => "background-color:white; color:blue; border-color: #000000;" %>  <br />
+        Adopted for: <%= f.text_field :name, :size => 15, :style => "background-color:white; color:blue; border-color: #000000;" %>  <br />
         Star #: <%= f.text_field :number, :size => 10, :style => "background-color:white; color:blue; border-color: #000000;" %>  <br />
         <%= f.check_box :only_available %> Available <br />
         <dl>
@@ -24,8 +24,6 @@
 <div id="colTwo">
   <h2>Kepler Stars</h2>
 
-  <%= will_paginate @stars %>
-
   <table>
     <tr>
       <th>Number</th>
@@ -33,7 +31,7 @@
       <th>Teff</th>
       <th>log g</th>
       <th>[M/H]</th>
-      <th>Adopted by</th>
+      <th>Adopted for</th>
     </tr>
 
   <% for star in @stars %>
@@ -44,12 +42,10 @@
       <td><%=h star.logg %></td>
       <td><%=h star.mh %></td>
       <td><%=h star.adopted_by %></td>
-      <td><%= link_to 'Sky Map', star %></td>
+      <td><%= link_to 'View Star', star %></td>
     </tr>
   <% end %>
   </table>
-
-  <br />
 
   <%= will_paginate @stars %>
 </div>

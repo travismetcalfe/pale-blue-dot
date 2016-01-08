@@ -1,4 +1,21 @@
+<% content_for("header") do %>
+<meta property="og:title" content="Pale Blue Dot project - adopt a star near mine!" />
+<meta property="og:image" content="http://whitedwarf.org/palebluedot/images/pbdcert.jpg" />
+<meta property="og:description" content="Join me in supporting the search for Earth-like planets by adopting a star near mine!" />
+<% end %>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="colTwo">
+  <table style="border-width: 0px"><tr><td style="border-width: 0px"><div class="fb-share-button" data-type="button_count"></div></td><td style="border-width: 0px"><a href="https://twitter.com/share" class="twitter-share-button" data-via="adopt_a_star">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table>
+<br>
   <h2>Stars Nearby</h2>
 
   <table>
@@ -8,7 +25,7 @@
       <th>Teff</th>
       <th>log g</th>
       <th>[M/H]</th>
-      <th>Adopted by</th>
+      <th>Adopted for</th>
     </tr>
 
   <% for star in @nearby_stars %>
@@ -18,10 +35,44 @@
       <td><%=h star.teff %></td>
       <td><%=h star.logg %></td>
       <td><%=h star.mh %></td>
+      <% if star.adopted_by.blank? %>
+      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	  <input type="hidden" name="cmd" value="_cart">
+	  <input type="hidden" name="business" value="pbd@whitedwarf.org">
+	  <input type="hidden" name="lc" value="US">
+	  <input type="hidden" name="currency_code" value="USD">
+	  <input type="hidden" name="no_shipping" value="1">
+	  <input type="hidden" name="no_note" value="1">
+	  <input type="hidden" name="add" value="1">
+	  <input type="hidden" name="return" value="http://adoptastar.whitedwarf.org/thanks/">
+	  <input type="hidden" name="cancel_return" value="http://adoptastar.whitedwarf.org">
+	  <input type="hidden" name="button_subtype" value="products">
+	  <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
+	  <% if star.flag == 1 %>
+	  <input type="hidden" name="amount" value="10.00">
+	  <% elsif star.flag == 2 %>
+	  <input type="hidden" name="amount" value="15.00">
+	  <% elsif star.flag == 3 %>
+	  <input type="hidden" name="amount" value="25.00">
+	  <% end %>
+	  <input type="hidden" name="item_number" value="<%=h star.id %>">
+	  <td><input type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur="if(!this.value)this.value='Name for Certificate';" onfocus="if(this.value=='Name for Certificate')this.value='';" maxlength="30"></td>
+      <td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></td></form>
+      <% else %>
       <td><%=h star.adopted_by %></td>
-      <td><%= link_to 'Sky Map', star %></td>
+      <td></td>
+      <% end %>
+      <td><%= link_to 'View Star', star %></td>
     </tr>
   <% end %>
   </table>
-
+  <br>
+  <table style="border-width: 0px"><tr><td style="border-width: 0px"><b>Check out through PayPal:</b></td><td style="border-width: 0px">
+	<form name="_xclick" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	  <input type="hidden" name="cmd" value="_cart">
+	  <input type="hidden" name="business" value="pbd@whitedwarf.org">
+	  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_SM.gif" border="0" name="submit" alt="View Cart">
+	  <input type="hidden" name="display" value="1">
+	</form>
+  </td></tr></table>
 </div>
