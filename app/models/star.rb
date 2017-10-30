@@ -22,7 +22,7 @@ class Star < ActiveRecord::Base
   end
 
   def nearby
-    Star.find(:all, :limit => 25, :conditions => ["(lon_d + lon_m / 60.0 + lon_s / 3600.0) < ? AND (lon_d + lon_m / 60.0 + lon_s / 3600.0) > ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) < ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) > ?", self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 + 0.005, self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 - 0.005, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 + 0.05, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 - 0.05], :order => "id")
+    Star.find(:all, :limit => 100, :conditions => ["(lon_d + lon_m / 60.0 + lon_s / 3600.0) < ? AND (lon_d + lon_m / 60.0 + lon_s / 3600.0) > ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) < ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) > ?", self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 + 0.0075, self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 - 0.0075, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 + 0.05, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 - 0.05], :order => "id")
   end
 
   def latitude
@@ -36,6 +36,13 @@ class Star < ActiveRecord::Base
   def longitude
     # This returns the numerical coordinate
     return (-((self.lon_d.to_f + self.lon_m.to_f / 60.0 + self.lon_s.to_f / 3600.0) * 15 - 180)).to_s
+    #
+    #return self.lon_d.to_s + ":" + self.lon_m.to_s + ":" + self.lon_s.to_s
+  end
+
+  def neglong
+    # This returns the numerical coordinate
+    return ((self.lon_d.to_f + self.lon_m.to_f / 60.0 + self.lon_s.to_f / 3600.0) * 15 - 180).to_s
     #
     #return self.lon_d.to_s + ":" + self.lon_m.to_s + ":" + self.lon_s.to_s
   end
