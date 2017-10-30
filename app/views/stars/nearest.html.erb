@@ -1,7 +1,7 @@
 <% content_for("header") do %>
-<meta property="og:title" content="Pale Blue Dot project - adopt a star near mine!" />
+<meta property="og:title" content="Adopt a star near mine - Nonprofit Adopt a Star" />
 <meta property="og:image" content="http://whitedwarf.org/palebluedot/images/pbdcert.jpg" />
-<meta property="og:description" content="Join me in supporting the search for Earth-like planets by adopting a star near mine!" />
+<meta property="og:description" content="Support the search for Earth-like planets by adopting a star near mine!" />
 <% end %>
 
 <div id="fb-root"></div>
@@ -22,9 +22,6 @@
     <tr>
       <th>Number</th>
       <th>Mag.</th>
-      <th>Teff</th>
-      <th>log g</th>
-      <th>[M/H]</th>
       <th>Adopted for</th>
     </tr>
 
@@ -32,9 +29,6 @@
     <tr>
       <td><%=h star.number %></td>
       <td><%=h star.mag %></td>
-      <td><%=h star.teff %></td>
-      <td><%=h star.logg %></td>
-      <td><%=h star.mh %></td>
       <% if star.adopted_by.blank? %>
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 	  <input type="hidden" name="cmd" value="_cart">
@@ -44,8 +38,8 @@
 	  <input type="hidden" name="no_shipping" value="1">
 	  <input type="hidden" name="no_note" value="1">
 	  <input type="hidden" name="add" value="1">
-	  <input type="hidden" name="return" value="http://adoptastar.whitedwarf.org/thanks/">
-	  <input type="hidden" name="cancel_return" value="http://adoptastar.whitedwarf.org">
+	  <input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/">
+	  <input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org">
 	  <input type="hidden" name="button_subtype" value="products">
 	  <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
 	  <% if star.flag == 1 %>
