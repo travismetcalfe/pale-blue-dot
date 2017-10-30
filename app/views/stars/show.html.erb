@@ -1,7 +1,7 @@
 <% content_for("header") do %>
-<meta property="og:title" content="Pale Blue Dot project - view my adopted star" />
+<meta property="og:title" content="View my Star - Nonprofit Adopt a Star" />
 <meta property="og:image" content="http://whitedwarf.org/palebluedot/images/pbdcert.jpg" />
-<meta property="og:description" content="Join me in supporting the search for Earth-like planets by adopting a star near mine!" />
+<meta property="og:description" content="Support the search for Earth-like planets by adopting a star near mine!" />
 <% end %>
 
 <div id="fb-root"></div>
@@ -13,7 +13,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <!--
 <script src="http://maps.google.com/maps/api/js?key=<%= AppConfig.google_maps_api_key %>&amp;sensor=false" type="text/javascript"></script>
 -->
@@ -22,7 +22,7 @@
     mapTypes['sky'] = {
       getTileUrl: function(coord, zoom) {
         return getHorizontallyRepeatingTileUrl(coord, zoom, function(coord, zoom) {
-          return "http://mw1.google.com/mw-planetary/sky/skytiles_v1/" +
+          return "https://mw1.google.com/mw-planetary/sky/skytiles_v1/" +
                  coord.x + "_" + coord.y + '_' + zoom + '.jpg';
  
         });
@@ -53,7 +53,9 @@
     }
  
     var map;
+    var markers = [];
     var mapTypeIds = [];
+    var infowindow = new google.maps.InfoWindow();
  
     var creditNode = document.createElement('div');
     creditNode.id = 'credit-control';
@@ -73,18 +75,24 @@
       for (var key in mapTypes) {
         mapTypeIds.push(key);
       }
- 
+
+      var starLatLng = {lat: <%= @star.latitude %>, lng: <%= @star.longitude %>}; 
+
       var mapOptions = {
         zoom: 12,
-        center: new google.maps.LatLng(<%= @star.latitude %>, <%= @star.longitude %>),
+        center: starLatLng,
 	disableDefaultUI: true,
         zoomControl: true
       };
       map = new google.maps.Map(document.getElementById("map2"), mapOptions);
 
-      var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(<%= @star.latitude %>, <%= @star.longitude %>),
-      map: map,
+      // start with the sky map type
+      map.setMapTypeId('sky');
+
+      var fovLayer = new google.maps.KmlLayer({
+	url: 'http://whitedwarf.org/palebluedot/kfov.kml',
+        map: map,
+	preserveViewport: true
       });
 
       map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(creditNode);
@@ -94,15 +102,111 @@
       google.maps.event.addListener(map, 'maptypeid_changed', function() {
         setCredit(mapTypes[map.getMapTypeId()].credit);
       });
- 
-      // start with the sky map type
-      map.setMapTypeId('sky');
+
+      <% for star in @nearby_stars %>
+
+      <% if star.adopted_by.match(/\"/).present? %>
+      adoptedby = '<%= star.adopted_by %>';
+      <% else %>
+      adoptedby = "<%= star.adopted_by %>";
+      <% end %>
+      adoptedby.sub("'", "\\\\'");
+      adoptedby.sub('"', '\\\\"');
+
+      <% if star.flag == 1 %>
+      var contentString = '<table><tr><td><b>Target star:</b> <a href="https://palebluedot.whitedwarf.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
+      <% if star.adopted_by.blank? %>
+      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/"><input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="10.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      <% else %>
+      '<table><tr><td><b>Adopted for:</b> '+ adoptedby +'</td></tr></table>';
+      <% end %>
+      var iconString = 'https://maps.google.com/mapfiles/ms/icons/yellow.png';
+      <% if star.number == @star.number %>
+      var iconString = 'https://maps.google.com/mapfiles/kml/paddle/ylw-stars_maps.png';
+      <% end %>
+
+      <% elsif star.flag == 2 %>
+      var contentString = '<table><tr><td><b>Double star:</b> <a href="https://palebluedot.whitedwarf.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
+      <% if star.adopted_by.blank? %>
+      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/"><input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="15.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      <% else %>
+      '<table><tr><td><b>Adopted for:</b> '+ adoptedby +'</td></tr></table>';
+      <% end %>
+      var iconString = 'https://maps.google.com/mapfiles/ms/icons/red.png';
+      <% if star.number == @star.number %>
+      var iconString = 'https://maps.google.com/mapfiles/kml/paddle/red-stars_maps.png';
+      <% end %>
+
+      <% elsif star.flag == 3 %>
+      var contentString = '<table><tr><td><b>Suspected planet-host:</b> <a href="https://palebluedot.whitedwarf.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
+      <% if star.adopted_by.blank? %>
+      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/"><input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="25.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      <% else %>
+      '<table><tr><td><b>Adopted for:</b> '+ adoptedby +'</td></tr></table>';
+      <% end %>
+      var iconString = 'https://maps.google.com/mapfiles/ms/icons/green.png';
+      <% if star.number == @star.number %>
+      var iconString = 'https://maps.google.com/mapfiles/kml/paddle/grn-stars_maps.png';
+      <% end %>
+
+      <% elsif star.flag == 4 %>
+      var contentString = '<table><tr><td><b>Planetary system:</b> <a href="https://palebluedot.whitedwarf.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
+      <% if star.adopted_by.include?('AVAILABLE') %>
+      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/"><input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="50.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      <% else %>
+      '<table><tr><td><b>Adopted for:</b> '+ adoptedby +'</td></tr></table>';
+      <% end %>
+      var iconString = 'https://maps.google.com/mapfiles/ms/icons/blue.png';
+      <% if star.number == @star.number %>
+      var iconString = 'https://maps.google.com/mapfiles/kml/paddle/blu-stars_maps.png';
+      <% end %>
+
+      <% end %>
+      var starLatLng = {lat: <%=h star.latitude %>, lng: <%=h star.longitude %>};
+      addMarker(starLatLng, iconString, contentString);
+      <% end %>
 
     }
 
-    </script>
+    function addMarker(location, iconString, contentString) {
+      var marker = new google.maps.Marker({
+        icon: iconString,
+        position: location,
+        map: map
+      });
+      markers.push(marker);
 
-<script src="http://www.google.com/jsapi?key=ABQIAAAAFmrtqw3f0zN8ClTpt2_rOBQuGqApAkpRnRuMFk1K7LjN5xkN5RTTbe_9ftsHz0aM2QJQ1L6zFB9joA"></script>
+      marker.addListener('click', function() {
+        infowindow.close();
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+      });
+
+    }
+
+    google.maps.event.addListener(infowindow, 'domready', function() {
+      document.getElementById("ppbtn").addEventListener('click', function() {
+          document.getElementById("ppform").submit()
+      });
+    });
+
+    function setMapOnAll(map) {
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+      }
+    }                                                                          
+
+    function showMarkers() {
+      setMapOnAll(map);
+    }
+
+    function clearMarkers() {
+      setMapOnAll(null);
+    }
+
+    </script>
+<!--
+<script src="https://www.google.com/jsapi?key=ABQIAAAAFmrtqw3f0zN8ClTpt2_rOBQuGqApAkpRnRuMFk1K7LjN5xkN5RTTbe_9ftsHz0aM2QJQ1L6zFB9joA"></script>
     <script>
 google.load("earth", "1");
 
@@ -147,6 +251,7 @@ function finished(object) {
   }, 1000);
 }
 </script>
+-->
 <script>
 function showdiv(divID){
    for(d = 2; d <= 3; d++){
@@ -160,22 +265,32 @@ function showdiv(divID){
    }
 }
 </script>
+<script>
+function putText(obj) {
+   if(!obj.value) {
+      obj.value='Name for Certificate';
+   }
+}
+
+function clrText(obj) {
+   if(obj.value=='Name for Certificate') {
+      obj.value='';
+   }
+}
+</script>
 
   <table><tr><td><div class="fb-share-button" data-type="button_count"></div></td><td><a href="https://twitter.com/share" class="twitter-share-button" data-via="adopt_a_star">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table>
 <p>
   <table><tr><td> 
   <% if @star.flag == 1 %>
-  <b>Target star</b>
+  <b>Target star:</b>
   <% elsif @star.flag == 2 %>
-  <b>Double star</b>
+  <b>Double star:</b>
   <% elsif @star.flag == 3 %>
-  <b>Candidate planet-host</b>
+  <b>Suspected planet-host:</b>
   <% elsif @star.flag == 4 %>
-  <b>Planetary system</b>
+  <b>Planetary system:</b>
   <% end %>
-  </td></tr></table>
-  <table><tr><td>
-  <b>Number:</b>
   <%=h @star.number %>
   </td></tr></table>
   <% if @star.adopted_by.empty? %>
@@ -189,8 +304,8 @@ function showdiv(divID){
       <input type="hidden" name="no_shipping" value="1">
       <input type="hidden" name="no_note" value="1">
       <input type="hidden" name="add" value="1">
-      <input type="hidden" name="return" value="http://adoptastar.whitedwarf.org/thanks/">
-      <input type="hidden" name="cancel_return" value="http://adoptastar.whitedwarf.org">
+      <input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/">
+      <input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org">
       <input type="hidden" name="button_subtype" value="products">
       <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
       <% if @star.flag == 1 %>
@@ -216,8 +331,8 @@ function showdiv(divID){
       <input type="hidden" name="no_shipping" value="1">
       <input type="hidden" name="no_note" value="1">
       <input type="hidden" name="add" value="1">
-      <input type="hidden" name="return" value="http://adoptastar.whitedwarf.org/thanks/">
-      <input type="hidden" name="cancel_return" value="http://adoptastar.whitedwarf.org">
+      <input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/">
+      <input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org">
       <input type="hidden" name="button_subtype" value="products">
       <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
       <input type="hidden" name="amount" value="50.00">
@@ -242,41 +357,17 @@ function showdiv(divID){
 
 </p>
 
-<table width="500px"><tr><td><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="javascript:showdiv(3);init()">SKY</a> | <a href="http://palebluedot.whitedwarf.org/stars/nearest/<%=h @star.id %>" target="_new">LIST</a></td></tr></table>
+<table width="500px"><tr><td><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_ext">SKY</a> | <a href="https://palebluedot.whitedwarf.org/stars/nearest/<%=h @star.id %>" target="_new">LIST</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
 
 <div id='map_container' style='border: 1px solid silver; height: 300px; width: 500px;'>
-  <div id="map2" style="display: block; height:100%; width:100%"></div>
+  <div id="map2" style="display: block; height:100%; width:100%; color: #000000"></div>
   <div id="map3" style="display: none; height:100%; width:100%"></div>
 </div>
 
-<table width="500px"><tr>
-<td>
-  <b>Mag.:</b>
-  <%=h @star.mag %>
-</td>
-
-<td>
-  <b>Teff:</b>
-  <%=h @star.teff %>
-</td>
-
-<td>
-  <b>log g:</b>
-  <%=h @star.logg %>
-</td>
-
-<td>
-  <b>[M/H]:</b>
-  <%=h @star.mh %>
-</td>
-
-</tr></table>
-
-<p>
 <table width="500px"><tr><td>
-  <b>Coordinates:</b> <br />
-  <i>R.A. = </i> <%=h @star.lon_d %>h <%=h @star.lon_m %>m  <%=h @star.lon_s %>s <i>(sky coordinate for longitude)</i><br />
-  <i>Dec. = </i> <%=h @star.lat_d %>° <%=h @star.lat_m %>′  <%=h @star.lat_s %>" <i>(sky coordinate for latitude)</i><br />
+  <b>Coordinates:</b>
+  <%=h @star.lon_d %>h <%=h @star.lon_m %>m  <%=h @star.lon_s %>s,
+  +<%=h @star.lat_d %>° <%=h @star.lat_m %>′  <%=h @star.lat_s %>" 
 </td></tr></table>
 <br>
 <table style="border-width: 0px"><tr><td style="border-width: 0px">
@@ -299,10 +390,10 @@ function showdiv(divID){
  <input type="hidden" name="display" value="1">
  </form>
 <% else %>
-<b><a href="http://adoptastar.whitedwarf.org" target="_adopt">Adopt a star</a> from a non-profit and support science!</b>
+<b><a href="https://adoptastar.whitedwarf.org" target="_adopt">Adopt a star</a> from a non-profit and support science!</b>
 <% end %>
 <% else %>
-<b><a href="http://adoptastar.whitedwarf.org" target="_adopt">Adopt a star</a> from a non-profit and support science!</b>
+<b><a href="https://adoptastar.whitedwarf.org" target="_adopt">Adopt a star</a> from a non-profit and support science!</b>
 <% end %>
 </td></tr></table>
 </p>
