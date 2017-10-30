@@ -16,6 +16,7 @@ class StarsController < ApplicationController
   # GET /stars/1.xml
   def show
     @star = Star.find(params[:id])
+    @nearby_stars = @star.nearby
 
     respond_to do |format|
       format.html # show.html.erb
