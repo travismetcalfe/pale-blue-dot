@@ -12,10 +12,10 @@ Released for free under a Creative Commons Attribution 2.5 License
 */
 
 body {
-	background: #f3f3f3;
+	background: #101010;
 	font-family: Tahoma, Verdana, Arial, sans-serif;
 	font-size: 14px;
-	color: #000;
+	color: #f3f3f3;
 }
 
 h1, h2, h3 {
@@ -25,7 +25,7 @@ h1, h2, h3 {
 }
 
 h1 { 	font-size: 1px; 
-	color: #f3f3f3;
+	color: #101010;
 }
 
 h2 {
@@ -46,7 +46,7 @@ p {
 }
 
 a {
-	color: #0000ff;
+	color: #ffff00;
 }
 
 a:hover {
@@ -102,7 +102,7 @@ a:hover {
 	padding: 0 0 0 0;
 	text-decoration: none;
 	font: bold 12px Georgia, "Times New Roman", Times, serif;
-	color: #f3f3f3;
+	color: #101010;
 }
 
 #header a:hover {
@@ -116,14 +116,14 @@ a:hover {
 /* Content */
 
 #content {
-	width: 800px;
+	width: 850px;
 	margin: 0 auto;
 }
 
 #colOne {
 	float: left;
 	width: 100px;
-	padding: 70px 0 0 0px;
+	padding: 20px 0 0 0px;
 }
 
 #colOne dd {
@@ -133,23 +133,24 @@ a:hover {
 
 #colTwo {
 	float: right;
-	width: 600px;
+	width: 650px;
 	padding: 0 20px 0 0;
 }
 
 #colTwo table {
 	border-width: 1px 1px 1px 1px;
 	border-spacing: 2px;
-	border-style: dotted dotted dotted dotted;
-	border-color: #000000 #000000 #000000 #000000;
-	border-collapse: separate;
-	background-color: #f3f3f3;
+	border-collapse: collapse;
+	border-style: solid solid solid solid;
+	border-color: #ffffff #ffffff #ffffff #ffffff;
+	background-color: #101010;
 }
 
 #colTwo table th {
 	border-width: 1px 1px 1px 1px;
-	padding: 1px 1px 1px 1px;
-	border-style: inset inset inset inset;
+	padding: 4px 4px 4px 4px;
+	border-collapse: collapse;
+	border-style: solid solid solid solid;
 	border-color: rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138);
 	background-color: ;
 	-moz-border-radius: 3px 3px 3px 3px;
@@ -157,7 +158,8 @@ a:hover {
 #colTwo table td {
 	border-width: 1px 1px 1px 1px;
 	padding: 1px 1px 1px 1px;
-	border-style: inset inset inset inset;
+	border-collapse: collapse;
+	border-style: solid solid solid solid;
 	border-color: rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138);
 	background-color: ;
 	-moz-border-radius: 3px 3px 3px 3px;
@@ -188,7 +190,7 @@ a:hover {
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  background-color: #f3f3f3;
+  background-color: #101010;
 }
 
 #errorExplanation h2 {
@@ -197,7 +199,7 @@ a:hover {
   padding: 5px 5px 5px 15px;
   font-size: 12px;
   margin: -7px;
-  background-color: #f3f3f3;
+  background-color: #101010;
   color: #000;
 }
 
