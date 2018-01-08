@@ -27,8 +27,12 @@ class Star < ActiveRecord::Base
 
   def latitude
     # This returns the numerical coordinate
-    return ((self.lat_d.to_f + self.lat_m.to_f / 60.0 + self.lat_s.to_f / 3600.0)).to_s
-    
+    if self.lat_d.to_f > 0
+      return ((self.lat_d.to_f + self.lat_m.to_f / 60.0 + self.lat_s.to_f / 3600.0)).to_s
+    else
+      return ((self.lat_d.to_f - self.lat_m.to_f / 60.0 - self.lat_s.to_f / 3600.0)).to_s
+    end
+
     # This returns it as hr:minute:sec
     #return self.lat_d.to_s + ":" + self.lat_m.to_s + ":" + self.lat_s.to_s
   end
