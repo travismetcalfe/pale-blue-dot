@@ -10,7 +10,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>View my Star - Nonprofit Adopt a Star</title>
+  <title>View my Star in Google Sky - Adopt a Star</title>
   <%= stylesheet_link_tag 'scaffold' %>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -24,7 +24,7 @@ Released for free under a Creative Commons Attribution 2.5 License
   </script>
   <%= yield :header %>
 </head>
-<body onload="initialize()">
+<body onload="initialize()" onunload="GUnload()">
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PD2G86"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -35,16 +35,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PD2G86');</script>
 <!-- End Google Tag Manager --> 
 
-<div id="header">
-</div>
-
 <div id="content">
-  <p style="color: green"><%= flash[:notice] %></p>
   
   <%= yield  %>
-
-  <div id="footer">
-  </div>
 
 </body>
 </html>

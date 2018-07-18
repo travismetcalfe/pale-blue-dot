@@ -1,45 +1,61 @@
+<% content_for("header") do %>
+<meta property="og:title" content="Adopt a Star, Support Science" />
+<meta property="og:image" content="http://whitedwarf.org/images/heart.jpg" />
+<meta property="og:description" content="view your star in Google Sky and download your certificate in minutes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<% end %>
+
 <div id="colOne">
 <%- form_for :search, @search, :url => { :action => "index" }, :html => {:method => :get} do |f| -%>
-        <%= f.error_messages %>
-        Adopted for: <%= f.text_field :name, :size => 15, :style => "background-color:white; color:blue; border-color: #000000;" %>  <br />
-        Star #: <%= f.text_field :number, :size => 10, :style => "background-color:white; color:blue; border-color: #000000;" %>  <br />
-        <%= f.check_box :only_available %> Available <br />
-        <dl>
-          <%= f.check_box :flag %> Type:
-          <dd><%= f.radio_button :flag_type, "1" %> target</dd>
-          <dd><%= f.radio_button :flag_type, "2" %> double</dd>
-          <dd><%= f.radio_button :flag_type, "3" %> suspect</dd>
-          <dd><%= f.radio_button :flag_type, "4" %> planet</dd>
-        </dl>
-        <dl>
-          <%= f.check_box :brightness %> Order:
-          <dd><%= f.radio_button :brightness_order, :asc %> brightest</dd>
-          <dd><%= f.radio_button :brightness_order, :desc %> faintest</dd>
-        </dl>
-        <br />
-        <%= f.submit "Search", :style => "background-color:white; color:blue; border-color: #000000" %>
+
+        <table>
+
+        <tr><td>Adopted for</td> 
+        <td><%= f.text_field :name, :size => 12 %></td></tr>
+
+        <tr><td>Star #</td> 
+        <td><%= f.text_field :number, :size => 12 %></td></tr>
+
+        <tr><td>Type</td>
+	<td><%= f.select :flag_type, options_for_select([['all', 0], ['target $10', 1], ['double $15', 2], ['suspect $25', 3], ['planet $50', 4], ['bright $100', 5]], :selected => f.object.flag_type) %></td></tr>
+
+        <tr><td>Constellation</td>
+	<td><%= f.select :const_type, options_for_select([['all','ALL'], ['Aquarius','Aqr'], ['Aries','Ari'], ['Auriga','Aur'], ['Capricorn','Cap'], ['Cetus','Cet'], ['Cancer','Cnc'], ['Cygnus','Cyg'], ['Draco','Dra'], ['Gemini','Gem'], ['Leo','Leo'], ['Libra','Lib'], ['Lyra','Lyr'], ['Ophiuchus','Oph'], ['Orion','Ori'], ['Pisces','Psc'], ['Scorpius','Sco'], ['Serpens','Ser'], ['Sextans','Sex'], ['Sagittarius','Sgr'], ['Taurus','Tau'], ['Virgo','Vir']], :selected => f.object.const_type) %></td></tr>
+
+        <tr><td>Sort</td>
+	<td><%= f.select :brightness_order, options_for_select([['number', 'num'], ['brightest', 'asc'], ['faintest', 'desc']], :selected => f.object.brightness_order) %></td></tr>
+
+        <tr><td>Available</td>
+        <td><%= f.select :only_available, options_for_select([['yes', true], ['all', false]], :selected => f.object.only_available) %></td></tr>
+
+        <tr><td colspan="2"><%= f.submit "Search" %></td></tr>
+
+        </table>
+
 <% end %>
 </div>
 
 <div id="colTwo">
-  <h2>Kepler Stars</h2>
+  <h2>Adopt a Star</h2>
 
   <table>
     <tr>
       <th>Number</th>
-      <th>Mag.</th>
       <th>Adopted for</th>
+      <th>Link</th>
     </tr>
 
   <% for star in @stars %>
     <tr>
       <td><%=h star.number %></td>
-      <td><%=h star.mag %></td>
       <td><%=h star.adopted_by %></td>
       <td><%= link_to 'View Star', star %></td>
     </tr>
   <% end %>
   </table>
 
-  <%= will_paginate @stars %>
+  <br><%= will_paginate @stars, :inner_window => 1, :outer_window => 0 %>
+
+  <br><b>Click any "View Star" link to begin</b>
+
 </div>

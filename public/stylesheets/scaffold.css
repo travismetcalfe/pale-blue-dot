@@ -1,10 +1,3 @@
-.fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-
 /*
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -24,7 +17,8 @@ h1, h2, h3 {
 	font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
-h1 { 	font-size: 1px; 
+h1 {
+	font-size: 1px; 
 	color: #101010;
 }
 
@@ -68,150 +62,117 @@ a:hover {
 	background: none;
 }
 
-/* Header */
-
-#header {
-	width: 800px;
-	margin: 0 auto;
-	padding: 0 0 0 0;
-	height: 1px;
-}
-
-#header h1 {
-	float: left;
-}
-
-#header h2 {
-	display: none;
-}
-
-#header ul {
-	float: right;
-	margin: 0;
-	padding: 0 0 0 0;
-	list-style: none;
-}
-
-#header li {
-	display: inline;
-}
-
-#header a {
-	display: block;
-	float: left;
-	padding: 0 0 0 0;
-	text-decoration: none;
-	font: bold 12px Georgia, "Times New Roman", Times, serif;
-	color: #101010;
-}
-
-#header a:hover {
-	text-decoration: underline;
-}
-
-#header .first a {
-	background: none;
-}
-
 /* Content */
 
 #content {
-	width: 850px;
-	margin: 0 auto;
+	width: 800px;
+	margin: 1em auto;
+}
+
+#gsky {
+        float: left;
+        width: 560px;
 }
 
 #colOne {
 	float: left;
-	width: 100px;
-	padding: 20px 0 0 0px;
+	width: 220px;
+	padding: 30px 20px 20px 10px;
 }
 
-#colOne dd {
-  margin-left: 10px;
-  margin-bottom: 5px;
+#colOne input[type="text"] {
+	width: 104px;
+}
+
+#colOne select {
+	width: 90px;
+}
+
+#colOne td {
+	white-space: nowrap;
+	padding: 5px;
+}
+#colOne td:first-child {
+	text-align: right;
+}
+
+#colOne #search_submit {
+	width: 100%;
+	height: 32px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	background: #000;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+#colOne #search_submit:hover {
+	cursor: pointer;
+	color: #000;
+	background: #fff;
 }
 
 #colTwo {
-	float: right;
-	width: 650px;
-	padding: 0 20px 0 0;
+	float: left;
 }
 
 #colTwo table {
-	border-width: 1px 1px 1px 1px;
-	border-spacing: 2px;
 	border-collapse: collapse;
-	border-style: solid solid solid solid;
-	border-color: #ffffff #ffffff #ffffff #ffffff;
 	background-color: #101010;
+	border: 1px solid #8a8a8a;
 }
 
+#colTwo table td,
 #colTwo table th {
-	border-width: 1px 1px 1px 1px;
-	padding: 4px 4px 4px 4px;
-	border-collapse: collapse;
-	border-style: solid solid solid solid;
-	border-color: rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138);
-	background-color: ;
-	-moz-border-radius: 3px 3px 3px 3px;
+	padding: 7px;
 }
-#colTwo table td {
-	border-width: 1px 1px 1px 1px;
-	padding: 1px 1px 1px 1px;
-	border-collapse: collapse;
-	border-style: solid solid solid solid;
-	border-color: rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138) rgb(138, 138, 138);
-	background-color: ;
-	-moz-border-radius: 3px 3px 3px 3px;
+#colTwo table th {
+	border-bottom: 1px solid #8a8a8a;
 }
 
-/* Footer */
-
-#footer {
-	clear: both;
-	width: 600px;
-	margin: 0 auto;
-	padding: 30px 0 0 0;
+#colTwo table tr:nth-child(odd) {
+    background-color: #000000
+}
+#colTwo table tr:nth-child(even) {
+    background-color: #202020
 }
 
-#footer p {
-	padding: 20px 0 0 0;
+.pagination {
 	text-align: center;
-	color: #000;
+}
+.pagination a {
+	padding: 5px;
 }
 
 
+/* =Optimized for Mobile Devices                                                                                   
+------------------------------------------------- */
 
-/* Rails stuff */
+@media (max-width: 555px) {
 
-#errorExplanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #101010;
+	#adopted_name {
+		width: 107px;
+	}
+
+	#gsky,
+	#content {
+	    width: 100%;
+	    margin: 0 auto;
+	}
+
+	#colOne,
+	#colTwo {
+		float: none;
+		width: 100%;
+	    padding: 0 0 20px 0;
+	}
+	#colTwo {
+		text-align: center;
+	}
+	#colOne table,
+	#colTwo table {
+		margin: 0 auto;
+	}
+
 }
-
-#errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #101010;
-  color: #000;
-}
-
-#errorExplanation p {
-  color: #000;
-  margin-bottom: 0;
-  padding: 5px;
-}
-
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
-

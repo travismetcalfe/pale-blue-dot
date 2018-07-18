@@ -2,6 +2,7 @@
 <meta property="og:title" content="Adopt a star near mine - Nonprofit Adopt a Star" />
 <meta property="og:image" content="http://whitedwarf.org/palebluedot/images/pbdcert.jpg" />
 <meta property="og:description" content="Support the search for Earth-like planets by adopting a star near mine!" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% end %>
 
 <div id="fb-root"></div>
@@ -14,21 +15,25 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="colTwo">
-  <table style="border-width: 0px"><tr><td style="border-width: 0px"><div class="fb-share-button" data-type="button_count"></div></td><td style="border-width: 0px"><a href="https://twitter.com/share" class="twitter-share-button" data-via="adopt_a_star">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table>
-<br>
+
+  <% if @star.adopted_by.empty? %>
+  <% elsif @star.adopted_by.include?('AVAILABLE') %>
+  <% else %>
+  <table style="border-width: 0px"><tr><td style="border-width: 0px"><div class="fb-share-button" data-type="button_count"></div></td><td style="border-width: 0px"><a href="https://twitter.com/share" class="twitter-share-button" data-via="adopt_a_star">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table><br>
+  <% end %>
   <h2>Stars Nearby</h2>
 
   <table>
     <tr>
       <th>Number</th>
-      <th>Mag.</th>
       <th>Adopted for</th>
+      <th></th>
+      <th>Link</th>
     </tr>
 
   <% for star in @nearby_stars %>
     <tr>
       <td><%=h star.number %></td>
-      <td><%=h star.mag %></td>
       <% if star.adopted_by.blank? %>
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 	  <input type="hidden" name="cmd" value="_cart">
@@ -38,16 +43,21 @@
 	  <input type="hidden" name="no_shipping" value="1">
 	  <input type="hidden" name="no_note" value="1">
 	  <input type="hidden" name="add" value="1">
-	  <input type="hidden" name="return" value="https://adoptastar.whitedwarf.org/thanks/">
-	  <input type="hidden" name="cancel_return" value="https://adoptastar.whitedwarf.org">
+	  <input type="hidden" name="cancel_return" value="https://adoptastar.org">
 	  <input type="hidden" name="button_subtype" value="products">
 	  <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
 	  <% if star.flag == 1 %>
 	  <input type="hidden" name="amount" value="10.00">
+	  <input type="hidden" name="return" value="https://adoptastar.org/thanks-10/">
 	  <% elsif star.flag == 2 %>
 	  <input type="hidden" name="amount" value="15.00">
+	  <input type="hidden" name="return" value="https://adoptastar.org/thanks-15/">
 	  <% elsif star.flag == 3 %>
 	  <input type="hidden" name="amount" value="25.00">
+	  <input type="hidden" name="return" value="https://adoptastar.org/thanks-25/">
+	  <% elsif star.flag == 5 %>
+	  <input type="hidden" name="amount" value="100.00">
+	  <input type="hidden" name="return" value="https://adoptastar.org/thanks-100/">
 	  <% end %>
 	  <input type="hidden" name="item_number" value="<%=h star.id %>">
 	  <td><input type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur="if(!this.value)this.value='Name for Certificate';" onfocus="if(this.value=='Name for Certificate')this.value='';" maxlength="30"></td>
@@ -61,7 +71,7 @@
   <% end %>
   </table>
   <br>
-  <table style="border-width: 0px"><tr><td style="border-width: 0px"><b>Check out through PayPal:</b></td><td style="border-width: 0px">
+  <table style="border-width: 0px"><tr><td style="border-width: 0px"><b>Check out here:</b></td><td style="border-width: 0px">
 	<form name="_xclick" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 	  <input type="hidden" name="cmd" value="_cart">
 	  <input type="hidden" name="business" value="pbd@whitedwarf.org">
@@ -69,4 +79,5 @@
 	  <input type="hidden" name="display" value="1">
 	</form>
   </td></tr></table>
+
 </div>
