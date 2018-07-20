@@ -6,22 +6,22 @@ class Star < ActiveRecord::Base
         conditions = ['flag = ? AND (adopted_by = ? OR adopted_by LIKE "AVAILABLE%") AND number LIKE ?', search.flag_type, "", "%" + search.number.to_s + "%"]
       end
       if search.const_type != 'ALL'
-        conditions = ['const LIKE ? AND (adopted_by = ? OR adopted_by LIKE "AVAILABLE%") AND number LIKE ?', "%#{search.const_type}%", "", "%" + search.number.to_s + "%"]
+        conditions = ['const = ? AND (adopted_by = ? OR adopted_by LIKE "AVAILABLE%") AND number LIKE ?', "#{search.const_type}", "", "%" + search.number.to_s + "%"]
       end
       if search.flag_type > 0 && search.const_type != 'ALL'
-        conditions = ['flag = ? AND const LIKE ? AND (adopted_by = ? OR adopted_by LIKE "AVAILABLE%") AND number LIKE ?', search.flag_type, "%#{search.const_type}%", "", "%" + search.number.to_s + "%"]
-      end 
-   else 
+        conditions = ['flag = ? AND const = ? AND (adopted_by = ? OR adopted_by LIKE "AVAILABLE%") AND number LIKE ?', search.flag_type, "#{search.const_type}", "", "%" + search.number.to_s + "%"]
+      end
+   else
       conditions = ['adopted_by LIKE ? AND number LIKE ?', "%#{search.name}%", "%" + search.number.to_s + "%"]
       if search.flag_type > 0
         conditions = ['flag = ? AND adopted_by LIKE ? AND number LIKE ?', search.flag_type, "%#{search.name}%", "%" + search.number.to_s + "%"]
       end
       if search.const_type != 'ALL'
-        conditions = ['const LIKE ? AND adopted_by LIKE ? AND number LIKE ?', "%#{search.const_type}%", "%#{search.name}%", "%" + search.number.to_s + "%"]
+        conditions = ['const = ? AND adopted_by LIKE ? AND number LIKE ?', "#{search.const_type}", "%#{search.name}%", "%" + search.number.to_s + "%"]
       end
       if search.flag_type > 0 && search.const_type != 'ALL'
-        conditions = ['flag = ? AND const LIKE ? AND adopted_by LIKE ? AND number LIKE ?', search.flag_type, "%#{search.const_type}%", "%#{search.name}%", "%" + search.number.to_s + "%"]
-      end 
+        conditions = ['flag = ? AND const = ? AND adopted_by LIKE ? AND number LIKE ?', search.flag_type, "#{search.const_type}", "%#{search.name}%", "%" + search.number.to_s + "%"]
+      end
     end
 
     order = "number"
