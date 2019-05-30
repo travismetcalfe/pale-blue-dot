@@ -388,7 +388,7 @@ function clrText(obj) {
 <% elsif @star.adopted_by.include?('AVAILABLE') %>
 <table width="100%"><tr><td><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_ext">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
 <% else %>
-<table width="100%"><tr><td width="33%"><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_ext">SKY</a></td><td align="center" width="33%"><a href="http://whitedwarf.org/cert/<%=h @star.id %>.pdf" target="_new">download certificate</a></td><td align="right" width="33%">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<table width="100%"><tr><td width="33%"><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_ext">SKY</a></td><td align="center" width="33%"><a href="https://adoptastar.org/cert/<%=h @star.id %>.pdf" target="_new">download certificate</a></td><td align="right" width="33%">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
 <% end %>
 
 <div id='map_container' style='border: 1px solid silver; height: 300px; width: 100%;'>
@@ -443,11 +443,11 @@ Virgo
 <% end %>
 </td><td align="right">
 <% if @star.lat_d >= 0 %>
-  [<%=h @star.lon_d %>h <%=h @star.lon_m %>m <%=h @star.lon_s %>s,
-   <%=h @star.lat_sign %><%=h @star.lat_d %>° <%=h @star.lat_m %>′ <%=h @star.lat_s %>"]
+  [<%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s,
+   <%=h @star.lat_sign %><%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"]
 <% elsif @star.lat_d < 0 %>
-  [<%=h @star.lon_d %>h <%=h @star.lon_m %>m <%=h @star.lon_s %>s,
-   <%=h @star.lat_d %>° <%=h @star.lat_m %>′ <%=h @star.lat_s %>"]
+  [<%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s,
+   <%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"]
 <% end %>
 </td></tr></table>
 
