@@ -1,21 +1,7 @@
-A simple application around the Pale Blue Dot project, to make it easier to adopt a star.
+A Ruby/Rails application to browse the database of Nonprofit Adopt a Star (adoptstar.org)
 
-Issue tracker at Lighthouse:
-http://sjors.lighthouseapp.com/projects/29064-pale-blue-dot/
+Originally created in 2009 by Sjors Provoost, now running at nonprofit.adoptastar.org
 
-More info about the Pale Blue Dot project:
-http://whitedwarf.org/palebluedot/
-
-This project is not in any way associated with Pale Blue Dot; it's just me. But who knows that might change.
-
-At the moment, it doesn't do anything useful except show a list of stars. Here's a list of possible improvements (for I which I don't have time, so patches are welcome):
-
-* Facebook / Etc integration, e.g.
-** show your friend's stars on map
-** find a bright star near your friends
-* search for cool astronomic coincidences, e.g.
-** eclipsed by Jupiter on your birthday
-* etc, etc
 
 Installation:
 
