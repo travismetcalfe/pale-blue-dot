@@ -1,17 +1,18 @@
 class CreateStars < ActiveRecord::Migration
   def self.up
     create_table :stars do |t|
+      t.integer :id
       t.string :number
+      t.integer :flag
+      t.string :const
       t.integer :lon_d
       t.integer :lon_m
-      t.decimal :lon_s, :precision => 6, :scale => 2
+      t.decimal :lon_s, :precision => 4, :scale => 1
+      t.string :lat_sign
       t.integer :lat_d
       t.integer :lat_m
-      t.decimal :lat_s, :precision => 6, :scale => 2
-      t.decimal :mag, :scale => 3, :precision => 10
-      t.integer :teff
-      t.decimal :logg, :scale => 3, :precision => 10
-      t.decimal :mh, :scale => 3, :precision => 10
+      t.integer :lat_s
+      t.decimal :mag, :precision => 5, :scale => 2
       t.string :adopted_by
 
       t.timestamps
