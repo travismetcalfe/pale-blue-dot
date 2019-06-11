@@ -12,15 +12,15 @@ Install MySQL on your machine. Also install development files, e.g. libmysqlclie
 Download the source. 
 
 Run:
-sudo rake gems:install
+bundle install
 
 Create a MySQL database:
 
-create database kepler;
+create database kepler character set utf8mb4 collate utf8mb4_general_ci;
 grant all privileges on kepler.* to kepler@localhost identified by 'kepler';
 
 Create the stars table:
-rake db:mgirate
+rails db:mgirate
 
 Download the stars:
 wget http://whitedwarf.org/palebluedot/KIC.txt
@@ -30,10 +30,10 @@ mysql kepler -u kepler -p < import-stars.sql
 
 Get a Google Maps API key. 
 
-Copy config/app_config.yml.example to app_config.yml and add your key to this file.
+Replace the variable value config.google_maps_api_key in config/application.rb for your API key
 
 Run server:
-script/server
+rails server
 
 Point your browser to:
  http://localhost:3000/

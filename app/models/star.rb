@@ -1,4 +1,5 @@
-class Star < ActiveRecord::Base
+class Star < ApplicationRecord
+  
   def self.search(search, page)
     if search.only_available
       conditions = ['(adopted_by = ? OR adopted_by LIKE "AVAILABLE%") AND number LIKE ?', "", "%" + search.number.to_s + "%"]
@@ -29,12 +30,11 @@ class Star < ActiveRecord::Base
       order = "mag " + search.brightness_order
     end
 
-    paginate :per_page => 15, :page => page,
-             :conditions => conditions, :order => order
+    where(conditions).paginate(:per_page => 15, :page => page).order(order)
   end
 
   def nearby
-    Star.find(:all, :limit => 200, :conditions => ["(lon_d + lon_m / 60.0 + lon_s / 3600.0) < ? AND (lon_d + lon_m / 60.0 + lon_s / 3600.0) > ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) < ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) > ?", self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 + 0.015, self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 - 0.015, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 + 0.1, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 - 0.1], :order => "id")
+    Star.where(["(lon_d + lon_m / 60.0 + lon_s / 3600.0) < ? AND (lon_d + lon_m / 60.0 + lon_s / 3600.0) > ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) < ? AND (lat_d + lat_m / 60.0 + lat_s / 3600.0) > ?", self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 + 0.015, self.lon_d + self.lon_m / 60.0 + self.lon_s / 3600.0 - 0.015, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 + 0.1, self.lat_d + self.lat_m / 60.0 + self.lat_s / 3600.0 - 0.1]).limit(200).order("id")
   end
 
   def latitude

@@ -1,9 +1,17 @@
 source 'https://rubygems.org'
 
-ruby "1.8.7"
+ruby "2.4.6"
 
-gem "rails", "2.3.15"
-gem "mislav-will_paginate", "2.2.3"
-gem "net-ssh", "1.1.4"
-gem "mysql"
-# gem "capistrano-ext", "1.2.1"
+gem "rails", "5.2.3"
+gem "will_paginate", "~> 3.1.0"
+gem "net-ssh"
+gem "mysql2"
+gem 'activemodel-serializers-xml'
+
+gem 'bootsnap', '>= 1.1.0', require: false
+
+gem "activerecord-tablefree", "~> 3.0"
+
+group :development do
+  gem 'listen', '>= 3.0.5', '< 3.2'
+end
