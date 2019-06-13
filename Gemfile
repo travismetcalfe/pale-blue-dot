@@ -6,8 +6,6 @@ gem "rails", "5.2.3"
 gem "will_paginate", "~> 3.1.0"
 gem "net-ssh"
 gem "mysql2"
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
 gem 'activemodel-serializers-xml'
 
 gem 'bootsnap', '>= 1.1.0', require: false

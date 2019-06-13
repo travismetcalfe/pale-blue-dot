@@ -9,7 +9,6 @@ class Search < ActiveRecord::Base
 
   after_initialize :set_defaults
   def set_defaults
-    puts "SET DEFAULTS"
     self.flag_type = self.flag_type.to_i
     self.const_type ||= "ALL"
     self.brightness_order ||= "num"
