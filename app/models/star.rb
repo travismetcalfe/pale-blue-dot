@@ -1,5 +1,7 @@
 class Star < ApplicationRecord
   
+  self.primary_key = 'id'
+
   def self.search(search, page)
     if search.only_available
       conditions = ['(adopted_by = ? OR adopted_by LIKE "AVAILABLE%") AND number LIKE ?', "", "%" + search.number.to_s + "%"]
