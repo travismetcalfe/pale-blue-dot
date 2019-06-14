@@ -1,0 +1,178 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	background: #101010;
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+	font-size: 14px;
+	color: #f3f3f3;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+h1 {
+	font-size: 1px; 
+	color: #101010;
+}
+
+h2 {
+	margin-bottom: 0px;
+	padding: 0 0 10px 0;
+	font-size: 24px;
+}
+
+h3 {
+	padding: 0 0 0px 0;
+	font-size: 13px;
+}
+
+p {
+	margin-top: 0;
+	text-align: justify;
+	line-height: 160%;
+}
+
+a {
+	color: #ffff00;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.list li {
+	padding: 5px 0;
+	background: url(../images/img5.gif) repeat-x;
+}
+
+.list li.first {
+	background: none;
+}
+
+/* Content */
+
+#content {
+	width: 800px;
+	margin: 1em auto;
+}
+
+#gsky {
+        float: left;
+        width: 560px;
+}
+
+#colOne {
+	float: left;
+	width: 220px;
+	padding: 30px 20px 20px 10px;
+}
+
+#colOne input[type="text"] {
+	width: 104px;
+}
+
+#colOne select {
+	width: 90px;
+}
+
+#colOne td {
+	white-space: nowrap;
+	padding: 5px;
+}
+#colOne td:first-child {
+	text-align: right;
+}
+
+#colOne #search_submit {
+	width: 100%;
+	height: 32px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	background: #000;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+#colOne #search_submit:hover {
+	cursor: pointer;
+	color: #000;
+	background: #fff;
+}
+
+#colTwo {
+	float: left;
+}
+
+#colTwo table {
+	border-collapse: collapse;
+	background-color: #101010;
+	border: 1px solid #8a8a8a;
+}
+
+#colTwo table td,
+#colTwo table th {
+	padding: 7px;
+}
+#colTwo table th {
+	border-bottom: 1px solid #8a8a8a;
+}
+
+#colTwo table tr:nth-child(odd) {
+    background-color: #000000
+}
+#colTwo table tr:nth-child(even) {
+    background-color: #202020
+}
+
+.pagination {
+	text-align: center;
+}
+.pagination a {
+	padding: 5px;
+}
+
+
+/* =Optimized for Mobile Devices                                                                                   
+------------------------------------------------- */
+
+@media (max-width: 555px) {
+
+	#adopted_name {
+		width: 107px;
+	}
+
+	#gsky,
+	#content {
+	    width: 100%;
+	    margin: 0 auto;
+	}
+
+	#colOne,
+	#colTwo {
+		float: none;
+		width: 100%;
+	    padding: 0 0 20px 0;
+	}
+	#colTwo {
+		text-align: center;
+	}
+	#colOne table,
+	#colTwo table {
+		margin: 0 auto;
+	}
+
+}

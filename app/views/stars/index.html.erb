@@ -6,7 +6,7 @@
 <% end %>
 
 <div id="colOne">
-<%- form_for :search, @search, :url => { :action => "index" }, :html => {:method => :get} do |f| -%>
+<%= form_for @search, as: :search, url: { action: "index" }, method: :get do |f| -%>
 
         <table>
 
@@ -28,7 +28,7 @@
         <tr><td>Available</td>
         <td><%= f.select :only_available, options_for_select([['yes', true], ['all', false]], :selected => f.object.only_available) %></td></tr>
 
-        <tr><td colspan="2"><%= f.submit "Search" %></td></tr>
+        <tr><td colspan="2"><%= f.submit "Search", id: "search_submit" %></td></tr>
 
         </table>
 

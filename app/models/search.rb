@@ -1,4 +1,5 @@
-class Search < ActiveRecord::BaseWithoutTable
+class Search < ActiveRecord::Base
+  has_no_table
   column :name, :string
   column :number, :string
   column :flag_type, :integer
@@ -6,10 +7,11 @@ class Search < ActiveRecord::BaseWithoutTable
   column :brightness_order, :string
   column :only_available, :boolean
 
-  def after_initialize
-    self.flag_type ||= 0
+  after_initialize :set_defaults
+  def set_defaults
+    self.flag_type = self.flag_type.to_i
     self.const_type ||= "ALL"
     self.brightness_order ||= "num"
-    self.only_available ||= false
+    self.only_available = self.only_available.to_s == "true"
   end
 end

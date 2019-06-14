@@ -1,4 +1,4 @@
-class AddAdoptedByAndNumberIndicesToStars < ActiveRecord::Migration
+class AddAdoptedByAndNumberIndicesToStars < ActiveRecord::Migration[5.2]
   def self.up
     add_index :stars, :adopted_by
     add_index :stars, :number

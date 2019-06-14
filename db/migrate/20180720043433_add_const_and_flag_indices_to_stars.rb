@@ -1,4 +1,4 @@
-class AddConstAndFlagIndicesToStars < ActiveRecord::Migration
+class AddConstAndFlagIndicesToStars < ActiveRecord::Migration[5.2]
   def self.up
     add_index :stars, :const
     add_index :stars, :flag

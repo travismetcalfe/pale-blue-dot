@@ -1,7 +1,6 @@
-class CreateStars < ActiveRecord::Migration
+class CreateStars < ActiveRecord::Migration[5.2]
   def self.up
     create_table :stars do |t|
-      t.integer :id
       t.string :number
       t.integer :flag
       t.string :const
