@@ -398,48 +398,182 @@ function clrText(obj) {
 
 <table width="100%"><tr>
 <td><b>Constellation:</b>
-<% if @star.const.include?('Aqr') %>
+<% if @star.const.include?('And') %> 
+Andromeda
+<% elsif @star.const.include?('Ant') %> 
+Antlia
+<% elsif @star.const.include?('Aps') %> 
+Apus
+<% elsif @star.const.include?('Aql') %> 
+Aquila
+<% elsif @star.const.include?('Aqr') %> 
 Aquarius
-<% elsif @star.const.include?('Ari') %>
+<% elsif @star.const.include?('Ara') %> 
+Ara
+<% elsif @star.const.include?('Ari') %> 
 Aries
-<% elsif @star.const.include?('Aur') %>
+<% elsif @star.const.include?('Aur') %> 
 Auriga
-<% elsif @star.const.include?('Cap') %>
-Capricorn
-<% elsif @star.const.include?('Cet') %>
+<% elsif @star.const.include?('Boo') %> 
+Bo&ouml;tes
+<% elsif @star.const.include?('CMa') %> 
+Canis Major
+<% elsif @star.const.include?('CMi') %> 
+Canis Minor
+<% elsif @star.const.include?('CVn') %> 
+Canes Venatici
+<% elsif @star.const.include?('Cae') %> 
+Caelum
+<% elsif @star.const.include?('Cam') %> 
+Camelopardalis
+<% elsif @star.const.include?('Cap') %> 
+Capricornus
+<% elsif @star.const.include?('Car') %> 
+Carina
+<% elsif @star.const.include?('Cas') %> 
+Cassiopeia
+<% elsif @star.const.include?('Cen') %> 
+Centaurus
+<% elsif @star.const.include?('Cep') %> 
+Cepheus
+<% elsif @star.const.include?('Cet') %> 
 Cetus
-<% elsif @star.const.include?('Cnc') %>
+<% elsif @star.const.include?('Cha') %> 
+Chamaeleon
+<% elsif @star.const.include?('Cir') %> 
+Circinus
+<% elsif @star.const.include?('Cnc') %> 
 Cancer
-<% elsif @star.const.include?('Cyg') %>
+<% elsif @star.const.include?('Col') %> 
+Columba
+<% elsif @star.const.include?('Com') %> 
+Coma Berenices
+<% elsif @star.const.include?('CrA') %> 
+Corona Australis
+<% elsif @star.const.include?('CrB') %> 
+Corona Borealis
+<% elsif @star.const.include?('Crt') %> 
+Crater
+<% elsif @star.const.include?('Cru') %> 
+Crux
+<% elsif @star.const.include?('Crv') %> 
+Corvus
+<% elsif @star.const.include?('Cyg') %> 
 Cygnus
-<% elsif @star.const.include?('Dra') %>
+<% elsif @star.const.include?('Del') %> 
+Delphinus
+<% elsif @star.const.include?('Dor') %> 
+Dorado
+<% elsif @star.const.include?('Dra') %> 
 Draco
-<% elsif @star.const.include?('Gem') %>
+<% elsif @star.const.include?('Equ') %> 
+Equuleus
+<% elsif @star.const.include?('Eri') %> 
+Eridanus
+<% elsif @star.const.include?('For') %> 
+Fornax
+<% elsif @star.const.include?('Gem') %> 
 Gemini
-<% elsif @star.const.include?('Leo') %>
+<% elsif @star.const.include?('Gru') %> 
+Grus
+<% elsif @star.const.include?('Her') %> 
+Hercules
+<% elsif @star.const.include?('Hor') %> 
+Horologium
+<% elsif @star.const.include?('Hya') %> 
+Hydra
+<% elsif @star.const.include?('Hyi') %> 
+Hydrus
+<% elsif @star.const.include?('Ind') %> 
+Indus
+<% elsif @star.const.include?('LMi') %> 
+Leo Minor
+<% elsif @star.const.include?('Lac') %> 
+Lacerta
+<% elsif @star.const.include?('Leo') %> 
 Leo
-<% elsif @star.const.include?('Lib') %>
+<% elsif @star.const.include?('Lep') %> 
+Lepus
+<% elsif @star.const.include?('Lib') %> 
 Libra
-<% elsif @star.const.include?('Lyr') %>
+<% elsif @star.const.include?('Lup') %> 
+Lupus
+<% elsif @star.const.include?('Lyn') %> 
+Lynx
+<% elsif @star.const.include?('Lyr') %> 
 Lyra
-<% elsif @star.const.include?('Oph') %>
+<% elsif @star.const.include?('Men') %> 
+Mensa
+<% elsif @star.const.include?('Mic') %> 
+Microscopium
+<% elsif @star.const.include?('Mon') %> 
+Monoceros
+<% elsif @star.const.include?('Mus') %> 
+Musca
+<% elsif @star.const.include?('Nor') %> 
+Norma
+<% elsif @star.const.include?('Oct') %> 
+Octans
+<% elsif @star.const.include?('Oph') %> 
 Ophiuchus
-<% elsif @star.const.include?('Ori') %>
+<% elsif @star.const.include?('Ori') %> 
 Orion
-<% elsif @star.const.include?('Psc') %>
+<% elsif @star.const.include?('Pav') %> 
+Pavo
+<% elsif @star.const.include?('Peg') %> 
+Pegasus
+<% elsif @star.const.include?('Per') %> 
+Perseus
+<% elsif @star.const.include?('Phe') %> 
+Phoenix
+<% elsif @star.const.include?('Pic') %> 
+Pictor
+<% elsif @star.const.include?('PsA') %> 
+Piscis Austrinus
+<% elsif @star.const.include?('Psc') %> 
 Pisces
-<% elsif @star.const.include?('Sco') %>
+<% elsif @star.const.include?('Pup') %> 
+Puppis
+<% elsif @star.const.include?('Pyx') %> 
+Pyxis
+<% elsif @star.const.include?('Ret') %> 
+Reticulum
+<% elsif @star.const.include?('Scl') %> 
+Sculptor
+<% elsif @star.const.include?('Sco') %> 
 Scorpius
-<% elsif @star.const.include?('Ser') %>
+<% elsif @star.const.include?('Sct') %> 
+Scutum
+<% elsif @star.const.include?('Ser') %> 
 Serpens
-<% elsif @star.const.include?('Sex') %>
+<% elsif @star.const.include?('Sex') %> 
 Sextans
-<% elsif @star.const.include?('Sgr') %>
+<% elsif @star.const.include?('Sge') %> 
+Sagitta
+<% elsif @star.const.include?('Sgr') %> 
 Sagittarius
-<% elsif @star.const.include?('Tau') %>
+<% elsif @star.const.include?('Tau') %> 
 Taurus
-<% elsif @star.const.include?('Vir') %>
+<% elsif @star.const.include?('Tel') %> 
+Telescopium
+<% elsif @star.const.include?('TrA') %> 
+Triangulum Australe
+<% elsif @star.const.include?('Tri') %> 
+Triangulum
+<% elsif @star.const.include?('Tuc') %> 
+Tucana
+<% elsif @star.const.include?('UMa') %> 
+Ursa Major
+<% elsif @star.const.include?('UMi') %> 
+Ursa Minor
+<% elsif @star.const.include?('Vel') %> 
+Vela
+<% elsif @star.const.include?('Vir') %> 
 Virgo
+<% elsif @star.const.include?('Vol') %> 
+Volans
+<% elsif @star.const.include?('Vul') %> 
+Vulpecula
 <% end %>
 </td><td align="right">
 <% if @star.lat_d >= 0 %>
