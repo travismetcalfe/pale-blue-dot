@@ -1,7 +1,7 @@
 <% content_for :header do %>
-<meta property="og:title" content="View my Star in Google Sky - Nonprofit Adopt a Star" />
-<meta property="og:image" content="http://whitedwarf.org/images/dedication.jpg" />
-<meta property="og:description" content="the non-profit alternative that supports astronomy research" />
+<meta property="og:title" content="Nonprofit Adopt a Star - View in Google Sky" />
+<meta property="og:image" content="https://adoptastar.org/wp-content/uploads/2018/05/dedication.jpg" />
+<meta property="og:description" content="the unique gift that supports astronomy research" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% end %>
 
@@ -118,7 +118,7 @@
       <% if star.flag == 1 %>
       var contentString = '<table><tr><td><b>Target star:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.org/thanks-10/"><input type="hidden" name="cancel_return" value="https://adoptastar.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="10.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input id="adopted_name" size="15" type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2740-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2740-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2740" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -130,7 +130,7 @@
       <% elsif star.flag == 2 %>
       var contentString = '<table><tr><td><b>Double star:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.org/thanks-15/"><input type="hidden" name="cancel_return" value="https://adoptastar.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="15.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input id="adopted_name" size="15" type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2781-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2781-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2781" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -142,7 +142,7 @@
       <% elsif star.flag == 3 %>
       var contentString = '<table><tr><td><b>Suspected planet-host:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.org/thanks-25/"><input type="hidden" name="cancel_return" value="https://adoptastar.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="25.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input id="adopted_name" size="15" type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748" style="cursor:pointer">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2749"></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -154,7 +154,7 @@
       <% elsif star.flag == 4 %>
       var contentString = '<table><tr><td><b>Planetary system:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.include?('AVAILABLE') %>
-      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.org/thanks-50/"><input type="hidden" name="cancel_return" value="https://adoptastar.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="50.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input id="adopted_name" size="15" type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748" style="cursor:pointer">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2750"></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -166,7 +166,7 @@
       <% elsif star.flag == 5 %>
       var contentString = '<table><tr><td><b>Bright star:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form id="ppform" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="pbd@whitedwarf.org"><input type="hidden" name="lc" value="US"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="no_note" value="1"><input type="hidden" name="add" value="1"><input type="hidden" name="return" value="https://adoptastar.org/thanks-100/"><input type="hidden" name="cancel_return" value="https://adoptastar.org"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest"><input type="hidden" name="amount" value="100.00"><input type="hidden" name="item_number" value="<%=h star.id %>"><input id="adopted_name" size="15" type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur=putText(this); onfocus=clrText(this); maxlength="30"></td><td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" id="ppbtn" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2783-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2783-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2783" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -198,12 +198,6 @@
 
     }
 
-    google.maps.event.addListener(infowindow, 'domready', function() {
-      document.getElementById("ppbtn").addEventListener('click', function() {
-          document.getElementById("ppform").submit()
-      });
-    });
-
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
@@ -219,79 +213,6 @@
     }
 
     </script>
-<!--
-<script src="https://www.google.com/jsapi?key=ABQIAAAAFmrtqw3f0zN8ClTpt2_rOBQuGqApAkpRnRuMFk1K7LjN5xkN5RTTbe_9ftsHz0aM2QJQ1L6zFB9joA"></script>
-    <script>
-google.load("earth", "1");
-
-var ge = null;
-var notloaded = true;
-
-function init() {
-  if(google.earth.isInstalled()){
-     document.getElementById('map2').style.display = 'none';
-     document.getElementById('map3').style.display = 'block';
-  }
-  if(notloaded) {
-     google.earth.createInstance("map3", initCallback, failureCallback);
-     notloaded = false;
-  }
-}
-
-function initCallback(object) {
-  ge = object;
-  ge.getOptions().setMapType(ge.MAP_TYPE_SKY);
-  ge.getWindow().setVisibility(true);
-  ge.getOptions().setStatusBarVisibility(true);
-  ge.getNavigationControl().setVisibility(ge.VISIBILITY_SHOW);
-  var url = 'http://whitedwarf.org/palebluedot/sky.kml';
-  google.earth.fetchKml(ge, url, finished);
-}
-
-function failureCallback(object) {
-}
-
-function finished(object) {
-  if (!object) {
-    alert('bad or NULL kml');
-    return;
-  }
-  setTimeout(function() {
-    ge.getFeatures().appendChild(object);
-    var la = ge.createLookAt('');
-    var longitude = -1. * <%= @star.longitude %>;
-    la.set(<%= @star.latitude %>, longitude,0, ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 10000);
-    ge.getView().setAbstractView(la);         
-  }, 1000);
-}
-</script>
--->
-<script>
-function showdiv(divID){
-   for(d = 2; d <= 3; d++){
-   var layer = 'map' + d;
-      if (d == divID){
-         document.getElementById(layer).style.display = 'block';
-      }
-      else{
-         document.getElementById(layer).style.display = 'none';
-      }
-   }
-}
-</script>
-<script>
-function putText(obj) {
-   if(!obj.value) {
-      obj.value='Name for Certificate';
-   }
-}
-
-function clrText(obj) {
-   if(obj.value=='Name for Certificate') {
-      obj.value='';
-   }
-}
-</script>
 
 <div id="content">
 
@@ -300,7 +221,7 @@ function clrText(obj) {
   <% if @star.adopted_by.empty? %>
   <% elsif @star.adopted_by.include?('AVAILABLE') %>
   <% else %>
-  <table><tr><td><div class="fb-share-button" data-type="button_count"></div></td><td><a href="https://twitter.com/share" class="twitter-share-button" data-via="adopt_a_star">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table><p>
+  <table><tr><td><div class="fb-share-button" data-type="button_count"></div></td><td><a href="https://twitter.com/share" class="twitter-share-button" data-via="adoptastar">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table><p>
   <% end %>
   <table><tr><td>
   <% if @star.flag == 1 %>
@@ -319,269 +240,238 @@ function clrText(obj) {
   <% if @star.adopted_by.empty? %>
   <table><tr><td>
     <b>Adopted&nbsp;for: </b></td>
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="business" value="pbd@whitedwarf.org">
-      <input type="hidden" name="lc" value="US">
-      <input type="hidden" name="currency_code" value="USD">
-      <input type="hidden" name="no_shipping" value="1">
-      <input type="hidden" name="no_note" value="1">
-      <input type="hidden" name="add" value="1">
-      <input type="hidden" name="cancel_return" value="https://adoptastar.org">
-      <input type="hidden" name="button_subtype" value="products">
-      <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
       <% if @star.flag == 1 %>
-      <input type="hidden" name="amount" value="10.00">
-      <input type="hidden" name="return" value="https://adoptastar.org/thanks-10/">
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2740-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2740-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2740">Add to Cart</button></form></td>
       <% elsif @star.flag == 2 %>
-      <input type="hidden" name="amount" value="15.00">
-      <input type="hidden" name="return" value="https://adoptastar.org/thanks-15/">
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2781-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2781-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2781">Add to Cart</button></form></td>
       <% elsif @star.flag == 3 %>
-      <input type="hidden" name="amount" value="25.00">
-      <input type="hidden" name="return" value="https://adoptastar.org/thanks-25/">
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2749"></form></td>
       <% elsif @star.flag == 5 %>
-      <input type="hidden" name="amount" value="100.00">
-      <input type="hidden" name="return" value="https://adoptastar.org/thanks-100/">
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2783-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2783-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2783">Add to Cart</button></form></td>
       <% end %>
-      <input type="hidden" name="item_number" value="<%=h @star.id %>">
-      <td><input id="adopted_name" size="15" type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur="if(!this.value)this.value='Name for Certificate';" onfocus="if(this.value=='Name for Certificate')this.value='';" maxlength="30"></td>
-      <td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></td></form>
   </tr></table>
   <% elsif @star.adopted_by.include?('AVAILABLE') %>
   <% if @star.flag == 4 %>
   <table><tr><td>
     <b>Adopted&nbsp;for: </b></td>
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="business" value="pbd@whitedwarf.org">
-      <input type="hidden" name="lc" value="US">
-      <input type="hidden" name="currency_code" value="USD">
-      <input type="hidden" name="no_shipping" value="1">
-      <input type="hidden" name="no_note" value="1">
-      <input type="hidden" name="add" value="1">
-      <input type="hidden" name="return" value="https://adoptastar.org/thanks-50/">
-      <input type="hidden" name="cancel_return" value="https://adoptastar.org">
-      <input type="hidden" name="button_subtype" value="products">
-      <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
-      <input type="hidden" name="amount" value="50.00">
-      <input type="hidden" name="item_number" value="<%=h @star.id %>">
-      <td><input id="adopted_name" size="15" type="text" name="item_name" style="color: #0000ff" value="Name for Certificate" onblur="if(!this.value)this.value='Name for Certificate';" onfocus="if(this.value=='Name for Certificate')this.value='';" maxlength="30"></td>
-      <td><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="Add to Cart"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></td></form>
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2750"></form></td>
   </tr></table>
   <% else %>
   <table><tr><td>
     <b>Adopted&nbsp;for: </b>
-    <%=h @star.adopted_by %> 
+    <a href="https://cert.adoptastar.org/<%=h @star.id %>.pdf" target="_cert"><%=h @star.adopted_by %></a>
   </td></tr></table>
   <% end %>
   <% else %>
   <table><tr><td>
     <b>Adopted&nbsp;for: </b>
-    <%=h @star.adopted_by %> 
+    <a href="https://cert.adoptastar.org/<%=h @star.id %>.pdf" target="_cert"><%=h @star.adopted_by %></a>
   </td></tr></table>
   <% end %>
 
 </p>
 
+<a name="map"></a>
+
 <% if @star.adopted_by.empty? %>
-<table width="100%"><tr><td><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_ext">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
 <% elsif @star.adopted_by.include?('AVAILABLE') %>
-<table width="100%"><tr><td><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_ext">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
 <% else %>
-<table width="100%"><tr><td width="33%"><a href="javascript:showdiv(2);initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_ext">SKY</a></td><td align="center" width="33%"><a href="https://adoptastar.org/cert/<%=h @star.id %>.pdf" target="_new">download certificate</a></td><td align="right" width="33%">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
 <% end %>
 
-<div id='map_container' style='border: 1px solid silver; height: 300px; width: 100%;'>
+<div id='map_container' style='border: 1px solid silver; width: 100%;'>
   <div id="map2" style="display: block; height:100%; width:100%; color: #000000"></div>
-  <div id="map3" style="display: none; height:100%; width:100%"></div>
 </div>
 
 <table width="100%"><tr>
 <td><b>Constellation:</b>
 <% if @star.const.include?('And') %> 
-Andromeda
+<a href="https://www.iau.org/public/images/detail/and/zoomable/" target="_map">Andromeda</a>
 <% elsif @star.const.include?('Ant') %> 
-Antlia
+<a href="https://www.iau.org/public/images/detail/ant/zoomable/" target="_map">Antlia</a>
 <% elsif @star.const.include?('Aps') %> 
-Apus
+<a href="https://www.iau.org/public/images/detail/aps/zoomable/" target="_map">Apus</a>
 <% elsif @star.const.include?('Aql') %> 
-Aquila
+<a href="https://www.iau.org/public/images/detail/aql/zoomable/" target="_map">Aquila</a>
 <% elsif @star.const.include?('Aqr') %> 
-Aquarius
+<a href="https://www.iau.org/public/images/detail/aqr/zoomable/" target="_map">Aquarius</a>
 <% elsif @star.const.include?('Ara') %> 
-Ara
+<a href="https://www.iau.org/public/images/detail/ara/zoomable/" target="_map">Ara</a>
 <% elsif @star.const.include?('Ari') %> 
-Aries
+<a href="https://www.iau.org/public/images/detail/ari/zoomable/" target="_map">Aries</a>
 <% elsif @star.const.include?('Aur') %> 
-Auriga
+<a href="https://www.iau.org/public/images/detail/aur/zoomable/" target="_map">Auriga</a>
 <% elsif @star.const.include?('Boo') %> 
-Bo&ouml;tes
+<a href="https://www.iau.org/public/images/detail/boo/zoomable/" target="_map">Bo&ouml;tes</a>
 <% elsif @star.const.include?('CMa') %> 
-Canis Major
+<a href="https://www.iau.org/public/images/detail/cma/zoomable/" target="_map">Canis Major</a>
 <% elsif @star.const.include?('CMi') %> 
-Canis Minor
+<a href="https://www.iau.org/public/images/detail/cmi/zoomable/" target="_map">Canis Minor</a>
 <% elsif @star.const.include?('CVn') %> 
-Canes Venatici
+<a href="https://www.iau.org/public/images/detail/cvn/zoomable/" target="_map">Canes Venatici</a>
 <% elsif @star.const.include?('Cae') %> 
-Caelum
+<a href="https://www.iau.org/public/images/detail/cae/zoomable/" target="_map">Caelum</a>
 <% elsif @star.const.include?('Cam') %> 
-Camelopardalis
+<a href="https://www.iau.org/public/images/detail/cam/zoomable/" target="_map">Camelopardalis</a>
 <% elsif @star.const.include?('Cap') %> 
-Capricornus
+<a href="https://www.iau.org/public/images/detail/cap/zoomable/" target="_map">Capricornus</a>
 <% elsif @star.const.include?('Car') %> 
-Carina
+<a href="https://www.iau.org/public/images/detail/car/zoomable/" target="_map">Carina</a>
 <% elsif @star.const.include?('Cas') %> 
-Cassiopeia
+<a href="https://www.iau.org/public/images/detail/cas/zoomable/" target="_map">Cassiopeia</a>
 <% elsif @star.const.include?('Cen') %> 
-Centaurus
+<a href="https://www.iau.org/public/images/detail/cen/zoomable/" target="_map">Centaurus</a>
 <% elsif @star.const.include?('Cep') %> 
-Cepheus
+<a href="https://www.iau.org/public/images/detail/cep/zoomable/" target="_map">Cepheus</a>
 <% elsif @star.const.include?('Cet') %> 
-Cetus
+<a href="https://www.iau.org/public/images/detail/cet/zoomable/" target="_map">Cetus</a>
 <% elsif @star.const.include?('Cha') %> 
-Chamaeleon
+<a href="https://www.iau.org/public/images/detail/cha/zoomable/" target="_map">Chamaeleon</a>
 <% elsif @star.const.include?('Cir') %> 
-Circinus
+<a href="https://www.iau.org/public/images/detail/cir/zoomable/" target="_map">Circinus</a>
 <% elsif @star.const.include?('Cnc') %> 
-Cancer
+<a href="https://www.iau.org/public/images/detail/cnc/zoomable/" target="_map">Cancer</a>
 <% elsif @star.const.include?('Col') %> 
-Columba
+<a href="https://www.iau.org/public/images/detail/col/zoomable/" target="_map">Columba</a>
 <% elsif @star.const.include?('Com') %> 
-Coma Berenices
+<a href="https://www.iau.org/public/images/detail/com/zoomable/" target="_map">Coma Berenices</a>
 <% elsif @star.const.include?('CrA') %> 
-Corona Australis
+<a href="https://www.iau.org/public/images/detail/cra/zoomable/" target="_map">Corona Australis</a>
 <% elsif @star.const.include?('CrB') %> 
-Corona Borealis
+<a href="https://www.iau.org/public/images/detail/crb/zoomable/" target="_map">Corona Borealis</a>
 <% elsif @star.const.include?('Crt') %> 
-Crater
+<a href="https://www.iau.org/public/images/detail/crt/zoomable/" target="_map">Crater</a>
 <% elsif @star.const.include?('Cru') %> 
-Crux
+<a href="https://www.iau.org/public/images/detail/cru/zoomable/" target="_map">Crux</a>
 <% elsif @star.const.include?('Crv') %> 
-Corvus
+<a href="https://www.iau.org/public/images/detail/crv/zoomable/" target="_map">Corvus</a>
 <% elsif @star.const.include?('Cyg') %> 
-Cygnus
+<a href="https://www.iau.org/public/images/detail/cyg/zoomable/" target="_map">Cygnus</a>
 <% elsif @star.const.include?('Del') %> 
-Delphinus
+<a href="https://www.iau.org/public/images/detail/del/zoomable/" target="_map">Delphinus</a>
 <% elsif @star.const.include?('Dor') %> 
-Dorado
+<a href="https://www.iau.org/public/images/detail/dor/zoomable/" target="_map">Dorado</a>
 <% elsif @star.const.include?('Dra') %> 
-Draco
+<a href="https://www.iau.org/public/images/detail/dra/zoomable/" target="_map">Draco</a>
 <% elsif @star.const.include?('Equ') %> 
-Equuleus
+<a href="https://www.iau.org/public/images/detail/equ/zoomable/" target="_map">Equuleus</a>
 <% elsif @star.const.include?('Eri') %> 
-Eridanus
+<a href="https://www.iau.org/public/images/detail/eri/zoomable/" target="_map">Eridanus</a>
 <% elsif @star.const.include?('For') %> 
-Fornax
+<a href="https://www.iau.org/public/images/detail/for/zoomable/" target="_map">Fornax</a>
 <% elsif @star.const.include?('Gem') %> 
-Gemini
+<a href="https://www.iau.org/public/images/detail/gem_new/zoomable/" target="_map">Gemini</a>
 <% elsif @star.const.include?('Gru') %> 
-Grus
+<a href="https://www.iau.org/public/images/detail/gru/zoomable/" target="_map">Grus</a>
 <% elsif @star.const.include?('Her') %> 
-Hercules
+<a href="https://www.iau.org/public/images/detail/her/zoomable/" target="_map">Hercules</a>
 <% elsif @star.const.include?('Hor') %> 
-Horologium
+<a href="https://www.iau.org/public/images/detail/hor/zoomable/" target="_map">Horologium</a>
 <% elsif @star.const.include?('Hya') %> 
-Hydra
+<a href="https://www.iau.org/public/images/detail/hya/zoomable/" target="_map">Hydra</a>
 <% elsif @star.const.include?('Hyi') %> 
-Hydrus
+<a href="https://www.iau.org/public/images/detail/hyi/zoomable/" target="_map">Hydrus</a>
 <% elsif @star.const.include?('Ind') %> 
-Indus
+<a href="https://www.iau.org/public/images/detail/ind/zoomable/" target="_map">Indus</a>
 <% elsif @star.const.include?('LMi') %> 
-Leo Minor
+<a href="https://www.iau.org/public/images/detail/lmi/zoomable/" target="_map">Leo Minor</a>
 <% elsif @star.const.include?('Lac') %> 
-Lacerta
+<a href="https://www.iau.org/public/images/detail/lac/zoomable/" target="_map">Lacerta</a>
 <% elsif @star.const.include?('Leo') %> 
-Leo
+<a href="https://www.iau.org/public/images/detail/leo/zoomable/" target="_map">Leo</a>
 <% elsif @star.const.include?('Lep') %> 
-Lepus
+<a href="https://www.iau.org/public/images/detail/lep/zoomable/" target="_map">Lepus</a>
 <% elsif @star.const.include?('Lib') %> 
-Libra
+<a href="https://www.iau.org/public/images/detail/lib/zoomable/" target="_map">Libra</a>
 <% elsif @star.const.include?('Lup') %> 
-Lupus
+<a href="https://www.iau.org/public/images/detail/lup/zoomable/" target="_map">Lupus</a>
 <% elsif @star.const.include?('Lyn') %> 
-Lynx
+<a href="https://www.iau.org/public/images/detail/lyn/zoomable/" target="_map">Lynx</a>
 <% elsif @star.const.include?('Lyr') %> 
-Lyra
+<a href="https://www.iau.org/public/images/detail/lyr/zoomable/" target="_map">Lyra</a>
 <% elsif @star.const.include?('Men') %> 
-Mensa
+<a href="https://www.iau.org/public/images/detail/men/zoomable/" target="_map">Mensa</a>
 <% elsif @star.const.include?('Mic') %> 
-Microscopium
+<a href="https://www.iau.org/public/images/detail/mic/zoomable/" target="_map">Microscopium</a>
 <% elsif @star.const.include?('Mon') %> 
-Monoceros
+<a href="https://www.iau.org/public/images/detail/mon/zoomable/" target="_map">Monoceros</a>
 <% elsif @star.const.include?('Mus') %> 
-Musca
+<a href="https://www.iau.org/public/images/detail/mus/zoomable/" target="_map">Musca</a>
 <% elsif @star.const.include?('Nor') %> 
-Norma
+<a href="https://www.iau.org/public/images/detail/nor/zoomable/" target="_map">Norma</a>
 <% elsif @star.const.include?('Oct') %> 
-Octans
+<a href="https://www.iau.org/public/images/detail/oct/zoomable/" target="_map">Octans</a>
 <% elsif @star.const.include?('Oph') %> 
-Ophiuchus
+<a href="https://www.iau.org/public/images/detail/oph/zoomable/" target="_map">Ophiuchus</a>
 <% elsif @star.const.include?('Ori') %> 
-Orion
+<a href="https://www.iau.org/public/images/detail/ori/zoomable/" target="_map">Orion</a>
 <% elsif @star.const.include?('Pav') %> 
-Pavo
+<a href="https://www.iau.org/public/images/detail/pav/zoomable/" target="_map">Pavo</a>
 <% elsif @star.const.include?('Peg') %> 
-Pegasus
+<a href="https://www.iau.org/public/images/detail/peg/zoomable/" target="_map">Pegasus</a>
 <% elsif @star.const.include?('Per') %> 
-Perseus
+<a href="https://www.iau.org/public/images/detail/per/zoomable/" target="_map">Perseus</a>
 <% elsif @star.const.include?('Phe') %> 
-Phoenix
+<a href="https://www.iau.org/public/images/detail/phe/zoomable/" target="_map">Phoenix</a>
 <% elsif @star.const.include?('Pic') %> 
-Pictor
+<a href="https://www.iau.org/public/images/detail/pic/zoomable/" target="_map">Pictor</a>
 <% elsif @star.const.include?('PsA') %> 
-Piscis Austrinus
+<a href="https://www.iau.org/public/images/detail/psa/zoomable/" target="_map">Piscis Austrinus</a>
 <% elsif @star.const.include?('Psc') %> 
-Pisces
+<a href="https://www.iau.org/public/images/detail/psc/zoomable/" target="_map">Pisces</a>
 <% elsif @star.const.include?('Pup') %> 
-Puppis
+<a href="https://www.iau.org/public/images/detail/pup/zoomable/" target="_map">Puppis</a>
 <% elsif @star.const.include?('Pyx') %> 
-Pyxis
+<a href="https://www.iau.org/public/images/detail/pyx/zoomable/" target="_map">Pyxis</a>
 <% elsif @star.const.include?('Ret') %> 
-Reticulum
+<a href="https://www.iau.org/public/images/detail/ret/zoomable/" target="_map">Reticulum</a>
 <% elsif @star.const.include?('Scl') %> 
-Sculptor
+<a href="https://www.iau.org/public/images/detail/scl/zoomable/" target="_map">Sculptor</a>
 <% elsif @star.const.include?('Sco') %> 
-Scorpius
+<a href="https://www.iau.org/public/images/detail/sco/zoomable/" target="_map">Scorpius</a>
 <% elsif @star.const.include?('Sct') %> 
-Scutum
-<% elsif @star.const.include?('Ser') %> 
-Serpens
+<a href="https://www.iau.org/public/images/detail/sct/zoomable/" target="_map">Scutum</a>
+<% elsif @star.const.include?('Ser') && @star.lon_d < 17 %>
+<a href="https://www.iau.org/public/images/detail/sercp/zoomable/" target="_map">Serpens</a>
+<% elsif @star.const.include?('Ser') && @star.lon_d >= 17 %> 
+<a href="https://www.iau.org/public/images/detail/sercd/zoomable/" target="_map">Serpens</a>
 <% elsif @star.const.include?('Sex') %> 
-Sextans
+<a href="https://www.iau.org/public/images/detail/sex/zoomable/" target="_map">Sextans</a>
 <% elsif @star.const.include?('Sge') %> 
-Sagitta
+<a href="https://www.iau.org/public/images/detail/sge/zoomable/" target="_map">Sagitta</a>
 <% elsif @star.const.include?('Sgr') %> 
-Sagittarius
+<a href="https://www.iau.org/public/images/detail/sgr/zoomable/" target="_map">Sagittarius</a>
 <% elsif @star.const.include?('Tau') %> 
-Taurus
+<a href="https://www.iau.org/public/images/detail/tau/zoomable/" target="_map">Taurus</a>
 <% elsif @star.const.include?('Tel') %> 
-Telescopium
+<a href="https://www.iau.org/public/images/detail/tel/zoomable/" target="_map">Telescopium</a>
 <% elsif @star.const.include?('TrA') %> 
-Triangulum Australe
+<a href="https://www.iau.org/public/images/detail/tra/zoomable/" target="_map">Triangulum Australe</a>
 <% elsif @star.const.include?('Tri') %> 
-Triangulum
+<a href="https://www.iau.org/public/images/detail/tri/zoomable/" target="_map">Triangulum</a>
 <% elsif @star.const.include?('Tuc') %> 
-Tucana
+<a href="https://www.iau.org/public/images/detail/tuc/zoomable/" target="_map">Tucana</a>
 <% elsif @star.const.include?('UMa') %> 
-Ursa Major
+<a href="https://www.iau.org/public/images/detail/uma/zoomable/" target="_map">Ursa Major</a>
 <% elsif @star.const.include?('UMi') %> 
-Ursa Minor
+<a href="https://www.iau.org/public/images/detail/umi/zoomable/" target="_map">Ursa Minor</a>
 <% elsif @star.const.include?('Vel') %> 
-Vela
+<a href="https://www.iau.org/public/images/detail/vel/zoomable/" target="_map">Vela</a>
 <% elsif @star.const.include?('Vir') %> 
-Virgo
+<a href="https://www.iau.org/public/images/detail/vir/zoomable/" target="_map">Virgo</a>
 <% elsif @star.const.include?('Vol') %> 
-Volans
+<a href="https://www.iau.org/public/images/detail/vol/zoomable/" target="_map">Volans</a>
 <% elsif @star.const.include?('Vul') %> 
-Vulpecula
+<a href="https://www.iau.org/public/images/detail/vul/zoomable/" target="_map">Vulpecula</a>
 <% end %>
+
 </td><td align="right">
 <% if @star.lat_d >= 0 %>
-  [<%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s,
-   <%=h @star.lat_sign %><%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"]
+  [<a href="https://simbad.u-strasbg.fr/simbad/sim-coo?Coord=<%=h @star.lon_d %>+<%=h @star.lon_m %>+<%=h @star.lon_s %>+<%=h @star.lat_d %>+<%=h @star.lat_m %>+<%=h @star.lat_s %>&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=10&Radius.unit=arcsec&submit=submit+query" target="_simbad"><%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s, <%=h @star.lat_sign %><%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"</a>]
 <% elsif @star.lat_d < 0 %>
-  [<%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s,
-   <%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"]
+  [<a href="https://simbad.u-strasbg.fr/simbad/sim-coo?Coord=<%=h @star.lon_d %>+<%=h @star.lon_m %>+<%=h @star.lon_s %>+<%=h @star.lat_d %>+<%=h @star.lat_m %>+<%=h @star.lat_s %>&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=10&Radius.unit=arcsec&submit=submit+query" target="_simbad"><%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s, <%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"</a>]
 <% end %>
 </td></tr></table>
 
@@ -589,22 +479,10 @@ Vulpecula
 <table style="border-width: 0px"><tr><td style="border-width: 0px">
 
 <% if @star.adopted_by.empty? %>
-<b>Check out here:</b></td><td style="border-width: 0px">
- <form name="_xclick" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
- <input type="hidden" name="cmd" value="_cart">
- <input type="hidden" name="business" value="pbd@whitedwarf.org">
- <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_SM.gif" border="0" name="submit" alt="View Cart">
- <input type="hidden" name="display" value="1">
- </form>
+<input type=button onClick="parent.location=&#39;https://adoptastar.org/checkout/&#39;" value="Proceed to Checkout">
 <% elsif @star.adopted_by.include?('AVAILABLE') %>
 <% if @star.flag == 4 %>
-<b>Check out here:</b></td><td style="border-width: 0px">
- <form name="_xclick" target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
- <input type="hidden" name="cmd" value="_cart">
- <input type="hidden" name="business" value="pbd@whitedwarf.org">
- <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_SM.gif" border="0" name="submit" alt="View Cart">
- <input type="hidden" name="display" value="1">
- </form>
+<input type=button onClick="parent.location=&#39;https://adoptastar.org/checkout/&#39;" value="Proceed to Checkout">
 <% else %>
 <b><a href="https://adoptastar.org" target="_adopt">Adopt a star</a> and support science!</b>
 <% end %>
@@ -616,3 +494,60 @@ Vulpecula
 </div>
 
 </div>
+
+<script>
+
+	function stripChars(event) {
+		if ( /[<>\/\*]/.test( event.target.value ) ) {
+			alert('The following characters cannot be used: < > / *');
+			event.target.value = event.target.value.replace(/[<>\/\*]+/g, '');
+		}
+	}
+	function monitorChars(elements) {
+		elements.forEach( function(input) {
+			input.onblur = function(event) {
+				if ( ! event.target.value ) {
+					event.target.value = 'Name for Certificate';
+				}
+			}
+			input.onfocus = function(event) {
+				if ( event.target.value == 'Name for Certificate' ) {
+					event.target.value = '';
+				}
+			}
+			input.addEventListener( 'input', stripChars );
+			input.addEventListener( 'change', stripChars );
+			input.addEventListener( 'paste', stripChars );
+		});
+	}
+	function validateForms(forms) {
+		forms.forEach( function(form) {
+			form.addEventListener( 'submit', event => {
+				var nameInput = form.querySelector('input.adopted_name');
+				if ( nameInput.value == 'Name for Certificate' ) {
+					alert("Please enter a name for the star certificate");
+					event.preventDefault();
+				} else {
+					nameInput.value = nameInput.value.trim();
+					form.querySelector('button[type="submit"]').style.pointerEvents = "none";
+				}
+			});
+		});
+	}
+
+	var nameInputs = document.querySelectorAll('input.adopted_name');
+	monitorChars(nameInputs);
+	var adoptionForms = document.querySelectorAll('form.adopt');
+	validateForms(adoptionForms);
+	
+	var myIframe = document.querySelector('#map_container iframe');
+	myIframe.addEventListener('load', function() {
+		
+		var iframeNameInputs = this.contentWindow.document.querySelectorAll('input.adopted_name');
+		monitorChars(iframeNameInputs);
+		var iframeAdoptionForms = this.contentWindow.document.querySelectorAll('form.adopt');
+		validateForms(iframeAdoptionForms);
+		
+	});
+
+</script>
