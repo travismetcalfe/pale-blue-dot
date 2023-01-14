@@ -40,11 +40,12 @@ p {
 }
 
 a {
-	color: #ffff00;
+	color: #a6d3f2; 
+	text-decoration: none;
 }
 
 a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .list {
@@ -62,6 +63,76 @@ a:hover {
 	background: none;
 }
 
+input.adopted_name {
+    color: #333;
+}
+a.alt,
+button,
+button.alt,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn,
+.button,
+.wp-block-button__link {
+    color: #fff;
+    background-color: #555;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-appearance: none;
+    height: 20px;
+    padding: 1px 5px;
+}
+a.alt:active,
+a.alt:focus,
+a.alt:hover,
+button:active,
+button:focus,
+button:hover,
+button.alt:active,
+button.alt:focus,
+button.alt:hover,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="button"]:hover,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="reset"]:hover,
+input[type="submit"]:active,
+input[type="submit"]:focus,
+input[type="submit"]:hover,
+.button:active,
+.button:focus,
+.button:hover,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover,
+.btn-default.active,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default,
+.open > .dropdown-toggle.btn-default:focus,
+.open > .dropdown-toggle.btn-default:hover,
+.wp-block-button__link:active,
+.wp-block-button__link:focus,
+.wp-block-button__link:hover {
+    color: #fff;
+    background-color: #444;
+    border-color: transparent;
+    cursor: pointer;
+}
+.gm-style-iw.gm-style-iw-c {
+    max-width: none !important;
+}
+
 /* Content */
 
 #content {
@@ -71,7 +142,15 @@ a:hover {
 
 #gsky {
         float: left;
-        width: 560px;
+        width: 800px;
+}
+
+#map_container {
+        height: 450px;
+}
+
+#sake_container {
+        height: 600px;
 }
 
 #colOne {
@@ -151,9 +230,11 @@ a:hover {
 
 @media (max-width: 555px) {
 
-	#adopted_name {
-		width: 107px;
-	}
+    input.adopted_name {
+	width: 114px;
+	font-size: 12px;
+	font-family: Arial, sans-serif;
+    }
 
 	#gsky,
 	#content {
@@ -161,6 +242,10 @@ a:hover {
 	    margin: 0 auto;
 	}
 
+	#map_container {
+            height: 300px;
+	}
+	
 	#colOne,
 	#colTwo {
 		float: none;
