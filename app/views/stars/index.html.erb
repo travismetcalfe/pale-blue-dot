@@ -1,8 +1,10 @@
 <% content_for :header do %>
-<meta property="og:title" content="Nonprofit Adopt a Star" />
-<meta property="og:image" content="https://adoptastar.org/wp-content/uploads/2018/05/dedication.jpg" />
-<meta property="og:description" content="the unique gift that supports astronomy research" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Nonprofit Adopt a Star" />
+  <meta property="og:image" content="https://adoptastar.org/wp-content/uploads/2018/05/dedication.jpg" />
+  <meta property="og:description" content="the unique gift that supports astronomy research" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>function initialize() { return; }</script>
 <% end %>
 
 <div id="colOne">
@@ -10,22 +12,22 @@
 
         <table>
 
-        <tr><td>Adopted for</td>
+        <tr><td><label for="search_name">Adopted for</label></td>
         <td><%= f.text_field :name, :size => 12 %></td></tr>
 
-        <tr><td>Star #</td>
+        <tr><td><label for="search_number">Star #</label></td>
         <td><%= f.text_field :number, :size => 12 %></td></tr>
 
-        <tr><td>Type</td>
+        <tr><td><label for="search_flag_type">Type</label></td>
 	<td><%= f.select :flag_type, options_for_select([['all', 0], ['target $10', 1], ['double $15', 2], ['suspect $25', 3], ['planet $50', 4], ['bright $100', 5]], :selected => f.object.flag_type), {}, {onchange: 'this.form.submit();'} %></td></tr>
 
-        <tr><td>Constellation</td>
+        <tr><td><label for="search_const_type">Constellation</label></td>
 	<td><%= f.select :const_type, options_for_select([['all','ALL'], ['Aquarius','Aqr'], ['Aries','Ari'], ['Cancer','Cnc'], ['Capricornus','Cap'], ['Gemini','Gem'], ['Leo','Leo'], ['Libra','Lib'], ['Pisces','Psc'], ['Sagittarius','Sgr'], ['Scorpius','Sco'], ['Taurus','Tau'], ['Virgo','Vir'], ['Andromeda','And'], ['Antlia','Ant'], ['Apus','Aps'], ['Aquila','Aql'], ['Ara','Ara'], ['Auriga','Aur'], ['Bootes','Boo'], ['Caelum','Cae'], ['Camelopardalis','Cam'], ['Canes Venatici','CVn'], ['Canis Major','CMa'], ['Canis Minor','CMi'], ['Carina','Car'], ['Cassiopeia','Cas'], ['Centaurus','Cen'], ['Cepheus','Cep'], ['Cetus','Cet'], ['Chamaeleon','Cha'], ['Circinus','Cir'], ['Columba','Col'], ['Coma Berenices','Com'], ['Corona Australis','CrA'], ['Corona Borealis','CrB'], ['Corvus','Crv'], ['Crater','Crt'], ['Crux','Cru'], ['Cygnus','Cyg'], ['Delphinus','Del'], ['Dorado','Dor'], ['Draco','Dra'], ['Equuleus','Equ'], ['Eridanus','Eri'], ['Fornax','For'], ['Grus','Gru'], ['Hercules','Her'], ['Horologium','Hor'], ['Hydra','Hya'], ['Hydrus','Hyi'], ['Indus','Ind'], ['Lacerta','Lac'], ['Leo Minor','LMi'], ['Lepus','Lep'], ['Lupus','Lup'], ['Lynx','Lyn'], ['Lyra','Lyr'], ['Mensa','Men'], ['Microscopium','Mic'], ['Monoceros','Mon'], ['Musca','Mus'], ['Norma','Nor'], ['Octans','Oct'], ['Ophiuchus','Oph'], ['Orion','Ori'], ['Pavo','Pav'], ['Pegasus','Peg'], ['Perseus','Per'], ['Phoenix','Phe'], ['Pictor','Pic'], ['Piscis Austrinus','PsA'], ['Puppis','Pup'], ['Pyxis','Pyx'], ['Reticulum','Ret'], ['Sagitta','Sge'], ['Sculptor','Scl'], ['Scutum','Sct'], ['Serpens','Ser'], ['Sextans','Sex'], ['Telescopium','Tel'], ['Triangulum Australe','TrA'], ['Triangulum','Tri'], ['Tucana','Tuc'], ['Ursa Major','UMa'], ['Ursa Minor','UMi'], ['Vela','Vel'], ['Volans','Vol'], ['Vulpecula','Vul']], :selected => f.object.const_type), {}, {onchange: 'this.form.submit();'} %></td></tr>
 
-        <tr><td>Sort</td>
+        <tr><td><label for="search_brightness_order">Sort</label></td>
 	<td><%= f.select :brightness_order, options_for_select([['number', 'num'], ['brightest', 'asc'], ['faintest', 'desc']], :selected => f.object.brightness_order), {}, {onchange: 'this.form.submit();'} %></td></tr>
 
-        <tr><td>Available</td>
+        <tr><td><label for="search_only_available">Available</label></td>
         <td><%= f.select :only_available, options_for_select([['yes', true], ['all', false]], :selected => f.object.only_available), {}, {onchange: 'this.form.submit();'} %></td></tr>
 
         <tr><td colspan="2"><%= f.submit "Search", id: "search_submit" %></td></tr>

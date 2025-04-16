@@ -1,8 +1,8 @@
 <% content_for :header do %>
-<meta property="og:title" content="Nonprofit Adopt a Star - View in Google Sky" />
-<meta property="og:image" content="https://adoptastar.org/wp-content/uploads/2018/05/dedication.jpg" />
-<meta property="og:description" content="the unique gift that supports astronomy research" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Nonprofit Adopt a Star - View in Google Sky" />
+  <meta property="og:image" content="https://adoptastar.org/wp-content/uploads/2018/05/dedication.jpg" />
+  <meta property="og:description" content="the unique gift that supports astronomy research" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% end %>
 
 <div id="fb-root"></div>
@@ -78,7 +78,7 @@
       var starLatLng = {lat: <%= @star.latitude %>, lng: <%= @star.longitude %>}; 
 
       var mapOptions = {
-        zoom: 12,
+        zoom: 11,
         center: starLatLng,
 	disableDefaultUI: true,
         zoomControl: true
@@ -118,7 +118,7 @@
       <% if star.flag == 1 %>
       var contentString = '<table><tr><td><b>Target star:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2740-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2740-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2740" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2740-0" value="<%=h star.id %>"><input type="text" name="addon-2740-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2740" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -130,7 +130,7 @@
       <% elsif star.flag == 2 %>
       var contentString = '<table><tr><td><b>Double star:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2781-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2781-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2781" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2781-0" value="<%=h star.id %>"><input type="text" name="addon-2781-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2781" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -142,7 +142,7 @@
       <% elsif star.flag == 3 %>
       var contentString = '<table><tr><td><b>Suspected planet-host:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748" style="cursor:pointer">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2749"></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-0" value="<%=h star.id %>"><input type="text" name="addon-2748-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748" style="cursor:pointer">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2749"></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -154,7 +154,7 @@
       <% elsif star.flag == 4 %>
       var contentString = '<table><tr><td><b>Planetary system:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.include?('AVAILABLE') %>
-      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748" style="cursor:pointer">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2750"></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-0" value="<%=h star.id %>"><input type="text" name="addon-2748-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748" style="cursor:pointer">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2750"></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -166,7 +166,7 @@
       <% elsif star.flag == 5 %>
       var contentString = '<table><tr><td><b>Bright star:</b> <a href="https://nonprofit.adoptastar.org/stars/<%= star.id %>" style="color:blue"><%= star.number %></a></td></tr></table>'+
       <% if star.adopted_by.blank? %>
-      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2783-star-number-0" value="<%=h star.id %>"><input type="text" name="addon-2783-adopted-for-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2783" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
+      '<table><tr><td><form onsubmit="if(this.querySelector(&#39;input[type=text]&#39;).value==&#39;Name for Certificate&#39;){alert(&#39;Please enter a name for the star certificate&#39;);event.preventDefault();}else{this.querySelector(&#39;input[type=text]&#39;).value=this.querySelector(&#39;input[type=text]&#39;).value.trim();this.querySelector(&#39;button[type=submit]&#39;).style.pointerEvents=&#39;none&#39;;}" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2783-0" value="<%=h star.id %>"><input type="text" name="addon-2783-1" value="Name for Certificate" onblur="if(!this.value)this.value=&#39;Name for Certificate&#39;;" onfocus="if(this.value==&#39;Name for Certificate&#39;)this.value=&#39;&#39;;" oninput="if(/[<>\/\*]/.test(this.value)){alert(&#39;The following characters cannot be used: < > / *&#39;);this.value=this.value.replace(/[<>\/\*]+/g,&#39;&#39;);}" style="color:#333" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2783" style="cursor:pointer">Add to Cart</button></form></td></tr></table>';
       <% else %>
       '<table><tr><td><b>Adopted&nbsp;for: </b> '+ adoptedby +'</td></tr></table>';
       <% end %>
@@ -221,7 +221,7 @@
   <% if @star.adopted_by.empty? %>
   <% elsif @star.adopted_by.include?('AVAILABLE') %>
   <% else %>
-  <table><tr><td><div class="fb-share-button" data-type="button_count"></div></td><td><a href="https://twitter.com/share" class="twitter-share-button" data-via="adoptastar">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table><p>
+  <table><tr valign="top"><td><div class="fb-share-button" data-type="button_count"></div></td><td><a href="https://twitter.com/share" class="twitter-share-button" data-via="adoptastar">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td></tr></table><p>
   <% end %>
   <table><tr><td>
   <% if @star.flag == 1 %>
@@ -241,20 +241,20 @@
   <table><tr><td>
     <b>Adopted&nbsp;for: </b></td>
       <% if @star.flag == 1 %>
-      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2740-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2740-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2740">Add to Cart</button></form></td>
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2740-0" value="<%=h @star.id %>"><input type="text" name="addon-2740-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2740">Add to Cart</button></form></td>
       <% elsif @star.flag == 2 %>
-      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2781-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2781-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2781">Add to Cart</button></form></td>
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2781-0" value="<%=h @star.id %>"><input type="text" name="addon-2781-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2781">Add to Cart</button></form></td>
       <% elsif @star.flag == 3 %>
-      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2749"></form></td>
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-0" value="<%=h @star.id %>"><input type="text" name="addon-2748-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2749"></form></td>
       <% elsif @star.flag == 5 %>
-      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2783-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2783-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2783">Add to Cart</button></form></td>
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2783-0" value="<%=h @star.id %>"><input type="text" name="addon-2783-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2783">Add to Cart</button></form></td>
       <% end %>
   </tr></table>
   <% elsif @star.adopted_by.include?('AVAILABLE') %>
   <% if @star.flag == 4 %>
   <table><tr><td>
     <b>Adopted&nbsp;for: </b></td>
-      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-star-number-0" value="<%=h @star.id %>"><input type="text" name="addon-2748-adopted-for-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2750"></form></td>
+      <td><form class="adopt" action="https://adoptastar.org/cart/" method="post" target="cart"><input type="hidden" name="addon-2748-0" value="<%=h @star.id %>"><input type="text" name="addon-2748-1" value="Name for Certificate" class="adopted_name" size="20" maxlength="30">&nbsp;<button type="submit" name="add-to-cart" value="2748">Add to Cart</button><input type="hidden" name="product_id" value="2748"><input type="hidden" name="variation_id" value="2750"></form></td>
   </tr></table>
   <% else %>
   <table><tr><td>
@@ -273,12 +273,10 @@
 
 <a name="map"></a>
 
-<% if @star.adopted_by.empty? %>
-<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
-<% elsif @star.adopted_by.include?('AVAILABLE') %>
-<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
-<% else %>
-<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://www.google.com/sky/#latitude=<%=h @star.latitude %>&longitude=<%=h @star.neglong %>&zoom=12" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<% if @star.lat_d >= 0 %>
+<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://aladin.cds.unistra.fr/AladinLite/?target=<%=h @star.lon_d %>%20<%=h @star.lon_m %>%20<%=h @star.lon_s %>%2B<%=h @star.lat_d %>%20<%=h @star.lat_m %>%20<%=h @star.lat_s %>&fov=0.75&survey=P%2FDSS2%2Fcolor" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<% elsif @star.lat_d < 0 %>
+<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://aladin.cds.unistra.fr/AladinLite/?target=<%=h @star.lon_d %>%20<%=h @star.lon_m %>%20<%=h @star.lon_s %><%=h @star.lat_d %>%20<%=h @star.lat_m %>%20<%=h @star.lat_s %>&fov=0.75&survey=P%2FDSS2%2Fcolor" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
 <% end %>
 
 <div id='map_container' style='border: 1px solid silver; width: 100%;'>
@@ -288,183 +286,183 @@
 <table width="100%"><tr>
 <td><b>Constellation:</b>
 <% if @star.const.include?('And') %> 
-<a href="https://www.iau.org/public/images/detail/and/zoomable/" target="_map">Andromeda</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AND.gif" target="_map">Andromeda</a>
 <% elsif @star.const.include?('Ant') %> 
-<a href="https://www.iau.org/public/images/detail/ant/zoomable/" target="_map">Antlia</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ANT.gif" target="_map">Antlia</a>
 <% elsif @star.const.include?('Aps') %> 
-<a href="https://www.iau.org/public/images/detail/aps/zoomable/" target="_map">Apus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/APS.gif" target="_map">Apus</a>
 <% elsif @star.const.include?('Aql') %> 
-<a href="https://www.iau.org/public/images/detail/aql/zoomable/" target="_map">Aquila</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AQL.gif" target="_map">Aquila</a>
 <% elsif @star.const.include?('Aqr') %> 
-<a href="https://www.iau.org/public/images/detail/aqr/zoomable/" target="_map">Aquarius</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AQR.gif" target="_map">Aquarius</a>
 <% elsif @star.const.include?('Ara') %> 
-<a href="https://www.iau.org/public/images/detail/ara/zoomable/" target="_map">Ara</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ARA.gif" target="_map">Ara</a>
 <% elsif @star.const.include?('Ari') %> 
-<a href="https://www.iau.org/public/images/detail/ari/zoomable/" target="_map">Aries</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ARI.gif" target="_map">Aries</a>
 <% elsif @star.const.include?('Aur') %> 
-<a href="https://www.iau.org/public/images/detail/aur/zoomable/" target="_map">Auriga</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AUR.gif" target="_map">Auriga</a>
 <% elsif @star.const.include?('Boo') %> 
-<a href="https://www.iau.org/public/images/detail/boo/zoomable/" target="_map">Bo&ouml;tes</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/BOO.gif" target="_map">Bo&ouml;tes</a>
 <% elsif @star.const.include?('CMa') %> 
-<a href="https://www.iau.org/public/images/detail/cma/zoomable/" target="_map">Canis Major</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CMA.gif" target="_map">Canis Major</a>
 <% elsif @star.const.include?('CMi') %> 
-<a href="https://www.iau.org/public/images/detail/cmi/zoomable/" target="_map">Canis Minor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CMI.gif" target="_map">Canis Minor</a>
 <% elsif @star.const.include?('CVn') %> 
-<a href="https://www.iau.org/public/images/detail/cvn/zoomable/" target="_map">Canes Venatici</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CVN.gif" target="_map">Canes Venatici</a>
 <% elsif @star.const.include?('Cae') %> 
-<a href="https://www.iau.org/public/images/detail/cae/zoomable/" target="_map">Caelum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAE.gif" target="_map">Caelum</a>
 <% elsif @star.const.include?('Cam') %> 
-<a href="https://www.iau.org/public/images/detail/cam/zoomable/" target="_map">Camelopardalis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAM.gif" target="_map">Camelopardalis</a>
 <% elsif @star.const.include?('Cap') %> 
-<a href="https://www.iau.org/public/images/detail/cap/zoomable/" target="_map">Capricornus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAP.gif" target="_map">Capricornus</a>
 <% elsif @star.const.include?('Car') %> 
-<a href="https://www.iau.org/public/images/detail/car/zoomable/" target="_map">Carina</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAR.gif" target="_map">Carina</a>
 <% elsif @star.const.include?('Cas') %> 
-<a href="https://www.iau.org/public/images/detail/cas/zoomable/" target="_map">Cassiopeia</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAS.gif" target="_map">Cassiopeia</a>
 <% elsif @star.const.include?('Cen') %> 
-<a href="https://www.iau.org/public/images/detail/cen/zoomable/" target="_map">Centaurus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CEN.gif" target="_map">Centaurus</a>
 <% elsif @star.const.include?('Cep') %> 
-<a href="https://www.iau.org/public/images/detail/cep/zoomable/" target="_map">Cepheus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CEP.gif" target="_map">Cepheus</a>
 <% elsif @star.const.include?('Cet') %> 
-<a href="https://www.iau.org/public/images/detail/cet/zoomable/" target="_map">Cetus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CET.gif" target="_map">Cetus</a>
 <% elsif @star.const.include?('Cha') %> 
-<a href="https://www.iau.org/public/images/detail/cha/zoomable/" target="_map">Chamaeleon</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CHA.gif" target="_map">Chamaeleon</a>
 <% elsif @star.const.include?('Cir') %> 
-<a href="https://www.iau.org/public/images/detail/cir/zoomable/" target="_map">Circinus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CIR.gif" target="_map">Circinus</a>
 <% elsif @star.const.include?('Cnc') %> 
-<a href="https://www.iau.org/public/images/detail/cnc/zoomable/" target="_map">Cancer</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CNC.gif" target="_map">Cancer</a>
 <% elsif @star.const.include?('Col') %> 
-<a href="https://www.iau.org/public/images/detail/col/zoomable/" target="_map">Columba</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/COL.gif" target="_map">Columba</a>
 <% elsif @star.const.include?('Com') %> 
-<a href="https://www.iau.org/public/images/detail/com/zoomable/" target="_map">Coma Berenices</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/COM.gif" target="_map">Coma Berenices</a>
 <% elsif @star.const.include?('CrA') %> 
-<a href="https://www.iau.org/public/images/detail/cra/zoomable/" target="_map">Corona Australis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRA.gif" target="_map">Corona Australis</a>
 <% elsif @star.const.include?('CrB') %> 
-<a href="https://www.iau.org/public/images/detail/crb/zoomable/" target="_map">Corona Borealis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRB.gif" target="_map">Corona Borealis</a>
 <% elsif @star.const.include?('Crt') %> 
-<a href="https://www.iau.org/public/images/detail/crt/zoomable/" target="_map">Crater</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRT.gif" target="_map">Crater</a>
 <% elsif @star.const.include?('Cru') %> 
-<a href="https://www.iau.org/public/images/detail/cru/zoomable/" target="_map">Crux</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRU.gif" target="_map">Crux</a>
 <% elsif @star.const.include?('Crv') %> 
-<a href="https://www.iau.org/public/images/detail/crv/zoomable/" target="_map">Corvus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRV.gif" target="_map">Corvus</a>
 <% elsif @star.const.include?('Cyg') %> 
-<a href="https://www.iau.org/public/images/detail/cyg/zoomable/" target="_map">Cygnus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CYG.gif" target="_map">Cygnus</a>
 <% elsif @star.const.include?('Del') %> 
-<a href="https://www.iau.org/public/images/detail/del/zoomable/" target="_map">Delphinus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/DEL.gif" target="_map">Delphinus</a>
 <% elsif @star.const.include?('Dor') %> 
-<a href="https://www.iau.org/public/images/detail/dor/zoomable/" target="_map">Dorado</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/DOR.gif" target="_map">Dorado</a>
 <% elsif @star.const.include?('Dra') %> 
-<a href="https://www.iau.org/public/images/detail/dra/zoomable/" target="_map">Draco</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/DRA.gif" target="_map">Draco</a>
 <% elsif @star.const.include?('Equ') %> 
-<a href="https://www.iau.org/public/images/detail/equ/zoomable/" target="_map">Equuleus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/EQU.gif" target="_map">Equuleus</a>
 <% elsif @star.const.include?('Eri') %> 
-<a href="https://www.iau.org/public/images/detail/eri/zoomable/" target="_map">Eridanus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ERI.gif" target="_map">Eridanus</a>
 <% elsif @star.const.include?('For') %> 
-<a href="https://www.iau.org/public/images/detail/for/zoomable/" target="_map">Fornax</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/FOR.gif" target="_map">Fornax</a>
 <% elsif @star.const.include?('Gem') %> 
-<a href="https://www.iau.org/public/images/detail/gem_new/zoomable/" target="_map">Gemini</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/GEM.gif" target="_map">Gemini</a>
 <% elsif @star.const.include?('Gru') %> 
-<a href="https://www.iau.org/public/images/detail/gru/zoomable/" target="_map">Grus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/GRU.gif" target="_map">Grus</a>
 <% elsif @star.const.include?('Her') %> 
-<a href="https://www.iau.org/public/images/detail/her/zoomable/" target="_map">Hercules</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HER.gif" target="_map">Hercules</a>
 <% elsif @star.const.include?('Hor') %> 
-<a href="https://www.iau.org/public/images/detail/hor/zoomable/" target="_map">Horologium</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HOR.gif" target="_map">Horologium</a>
 <% elsif @star.const.include?('Hya') %> 
-<a href="https://www.iau.org/public/images/detail/hya/zoomable/" target="_map">Hydra</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HYA.gif" target="_map">Hydra</a>
 <% elsif @star.const.include?('Hyi') %> 
-<a href="https://www.iau.org/public/images/detail/hyi/zoomable/" target="_map">Hydrus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HYI.gif" target="_map">Hydrus</a>
 <% elsif @star.const.include?('Ind') %> 
-<a href="https://www.iau.org/public/images/detail/ind/zoomable/" target="_map">Indus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/IND.gif" target="_map">Indus</a>
 <% elsif @star.const.include?('LMi') %> 
-<a href="https://www.iau.org/public/images/detail/lmi/zoomable/" target="_map">Leo Minor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LMI.gif" target="_map">Leo Minor</a>
 <% elsif @star.const.include?('Lac') %> 
-<a href="https://www.iau.org/public/images/detail/lac/zoomable/" target="_map">Lacerta</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LAC.gif" target="_map">Lacerta</a>
 <% elsif @star.const.include?('Leo') %> 
-<a href="https://www.iau.org/public/images/detail/leo/zoomable/" target="_map">Leo</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LEO.gif" target="_map">Leo</a>
 <% elsif @star.const.include?('Lep') %> 
-<a href="https://www.iau.org/public/images/detail/lep/zoomable/" target="_map">Lepus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LEP.gif" target="_map">Lepus</a>
 <% elsif @star.const.include?('Lib') %> 
-<a href="https://www.iau.org/public/images/detail/lib/zoomable/" target="_map">Libra</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LIB.gif" target="_map">Libra</a>
 <% elsif @star.const.include?('Lup') %> 
-<a href="https://www.iau.org/public/images/detail/lup/zoomable/" target="_map">Lupus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LUP.gif" target="_map">Lupus</a>
 <% elsif @star.const.include?('Lyn') %> 
-<a href="https://www.iau.org/public/images/detail/lyn/zoomable/" target="_map">Lynx</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LYN.gif" target="_map">Lynx</a>
 <% elsif @star.const.include?('Lyr') %> 
-<a href="https://www.iau.org/public/images/detail/lyr/zoomable/" target="_map">Lyra</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LYR.gif" target="_map">Lyra</a>
 <% elsif @star.const.include?('Men') %> 
-<a href="https://www.iau.org/public/images/detail/men/zoomable/" target="_map">Mensa</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MEN.gif" target="_map">Mensa</a>
 <% elsif @star.const.include?('Mic') %> 
-<a href="https://www.iau.org/public/images/detail/mic/zoomable/" target="_map">Microscopium</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MIC.gif" target="_map">Microscopium</a>
 <% elsif @star.const.include?('Mon') %> 
-<a href="https://www.iau.org/public/images/detail/mon/zoomable/" target="_map">Monoceros</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MON.gif" target="_map">Monoceros</a>
 <% elsif @star.const.include?('Mus') %> 
-<a href="https://www.iau.org/public/images/detail/mus/zoomable/" target="_map">Musca</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MUS.gif" target="_map">Musca</a>
 <% elsif @star.const.include?('Nor') %> 
-<a href="https://www.iau.org/public/images/detail/nor/zoomable/" target="_map">Norma</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/NOR.gif" target="_map">Norma</a>
 <% elsif @star.const.include?('Oct') %> 
-<a href="https://www.iau.org/public/images/detail/oct/zoomable/" target="_map">Octans</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/OCT.gif" target="_map">Octans</a>
 <% elsif @star.const.include?('Oph') %> 
-<a href="https://www.iau.org/public/images/detail/oph/zoomable/" target="_map">Ophiuchus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/OPH.gif" target="_map">Ophiuchus</a>
 <% elsif @star.const.include?('Ori') %> 
-<a href="https://www.iau.org/public/images/detail/ori/zoomable/" target="_map">Orion</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ORI.gif" target="_map">Orion</a>
 <% elsif @star.const.include?('Pav') %> 
-<a href="https://www.iau.org/public/images/detail/pav/zoomable/" target="_map">Pavo</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PAV.gif" target="_map">Pavo</a>
 <% elsif @star.const.include?('Peg') %> 
-<a href="https://www.iau.org/public/images/detail/peg/zoomable/" target="_map">Pegasus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PEG.gif" target="_map">Pegasus</a>
 <% elsif @star.const.include?('Per') %> 
-<a href="https://www.iau.org/public/images/detail/per/zoomable/" target="_map">Perseus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PER.gif" target="_map">Perseus</a>
 <% elsif @star.const.include?('Phe') %> 
-<a href="https://www.iau.org/public/images/detail/phe/zoomable/" target="_map">Phoenix</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PHE.gif" target="_map">Phoenix</a>
 <% elsif @star.const.include?('Pic') %> 
-<a href="https://www.iau.org/public/images/detail/pic/zoomable/" target="_map">Pictor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PIC.gif" target="_map">Pictor</a>
 <% elsif @star.const.include?('PsA') %> 
-<a href="https://www.iau.org/public/images/detail/psa/zoomable/" target="_map">Piscis Austrinus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PSA.gif" target="_map">Piscis Austrinus</a>
 <% elsif @star.const.include?('Psc') %> 
-<a href="https://www.iau.org/public/images/detail/psc/zoomable/" target="_map">Pisces</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PSC.gif" target="_map">Pisces</a>
 <% elsif @star.const.include?('Pup') %> 
-<a href="https://www.iau.org/public/images/detail/pup/zoomable/" target="_map">Puppis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PUP.gif" target="_map">Puppis</a>
 <% elsif @star.const.include?('Pyx') %> 
-<a href="https://www.iau.org/public/images/detail/pyx/zoomable/" target="_map">Pyxis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PYX.gif" target="_map">Pyxis</a>
 <% elsif @star.const.include?('Ret') %> 
-<a href="https://www.iau.org/public/images/detail/ret/zoomable/" target="_map">Reticulum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/RET.gif" target="_map">Reticulum</a>
 <% elsif @star.const.include?('Scl') %> 
-<a href="https://www.iau.org/public/images/detail/scl/zoomable/" target="_map">Sculptor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCL.gif" target="_map">Sculptor</a>
 <% elsif @star.const.include?('Sco') %> 
-<a href="https://www.iau.org/public/images/detail/sco/zoomable/" target="_map">Scorpius</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCO.gif" target="_map">Scorpius</a>
 <% elsif @star.const.include?('Sct') %> 
-<a href="https://www.iau.org/public/images/detail/sct/zoomable/" target="_map">Scutum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCT.gif" target="_map">Scutum</a>
 <% elsif @star.const.include?('Ser') && @star.lon_d < 17 %>
-<a href="https://www.iau.org/public/images/detail/sercp/zoomable/" target="_map">Serpens</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SERCP.gif" target="_map">Serpens</a>
 <% elsif @star.const.include?('Ser') && @star.lon_d >= 17 %> 
-<a href="https://www.iau.org/public/images/detail/sercd/zoomable/" target="_map">Serpens</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SERCD.gif" target="_map">Serpens</a>
 <% elsif @star.const.include?('Sex') %> 
-<a href="https://www.iau.org/public/images/detail/sex/zoomable/" target="_map">Sextans</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SEX.gif" target="_map">Sextans</a>
 <% elsif @star.const.include?('Sge') %> 
-<a href="https://www.iau.org/public/images/detail/sge/zoomable/" target="_map">Sagitta</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SGE.gif" target="_map">Sagitta</a>
 <% elsif @star.const.include?('Sgr') %> 
-<a href="https://www.iau.org/public/images/detail/sgr/zoomable/" target="_map">Sagittarius</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SGR.gif" target="_map">Sagittarius</a>
 <% elsif @star.const.include?('Tau') %> 
-<a href="https://www.iau.org/public/images/detail/tau/zoomable/" target="_map">Taurus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TAU.gif" target="_map">Taurus</a>
 <% elsif @star.const.include?('Tel') %> 
-<a href="https://www.iau.org/public/images/detail/tel/zoomable/" target="_map">Telescopium</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TEL.gif" target="_map">Telescopium</a>
 <% elsif @star.const.include?('TrA') %> 
-<a href="https://www.iau.org/public/images/detail/tra/zoomable/" target="_map">Triangulum Australe</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TRA.gif" target="_map">Triangulum Australe</a>
 <% elsif @star.const.include?('Tri') %> 
-<a href="https://www.iau.org/public/images/detail/tri/zoomable/" target="_map">Triangulum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TRI.gif" target="_map">Triangulum</a>
 <% elsif @star.const.include?('Tuc') %> 
-<a href="https://www.iau.org/public/images/detail/tuc/zoomable/" target="_map">Tucana</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TUC.gif" target="_map">Tucana</a>
 <% elsif @star.const.include?('UMa') %> 
-<a href="https://www.iau.org/public/images/detail/uma/zoomable/" target="_map">Ursa Major</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/UMA.gif" target="_map">Ursa Major</a>
 <% elsif @star.const.include?('UMi') %> 
-<a href="https://www.iau.org/public/images/detail/umi/zoomable/" target="_map">Ursa Minor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/UMI.gif" target="_map">Ursa Minor</a>
 <% elsif @star.const.include?('Vel') %> 
-<a href="https://www.iau.org/public/images/detail/vel/zoomable/" target="_map">Vela</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VEL.gif" target="_map">Vela</a>
 <% elsif @star.const.include?('Vir') %> 
-<a href="https://www.iau.org/public/images/detail/vir/zoomable/" target="_map">Virgo</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VIR.gif" target="_map">Virgo</a>
 <% elsif @star.const.include?('Vol') %> 
-<a href="https://www.iau.org/public/images/detail/vol/zoomable/" target="_map">Volans</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VOL.gif" target="_map">Volans</a>
 <% elsif @star.const.include?('Vul') %> 
-<a href="https://www.iau.org/public/images/detail/vul/zoomable/" target="_map">Vulpecula</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VUL.gif" target="_map">Vulpecula</a>
 <% end %>
 
 </td><td align="right">
