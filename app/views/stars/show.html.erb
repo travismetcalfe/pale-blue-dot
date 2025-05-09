@@ -259,13 +259,13 @@
   <% else %>
   <table><tr><td>
     <b>Adopted&nbsp;for: </b>
-    <a href="https://cert.adoptastar.org/<%=h @star.id %>.pdf" target="_cert"><%=h @star.adopted_by %></a>
+    <a href="https://cert.adoptastar.org/<%=h @star.id %>.pdf" title="view certificate" target="_cert"><%=h @star.adopted_by %></a>
   </td></tr></table>
   <% end %>
   <% else %>
   <table><tr><td>
     <b>Adopted&nbsp;for: </b>
-    <a href="https://cert.adoptastar.org/<%=h @star.id %>.pdf" target="_cert"><%=h @star.adopted_by %></a>
+    <a href="https://cert.adoptastar.org/<%=h @star.id %>.pdf" title="view certificate" target="_cert"><%=h @star.adopted_by %></a>
   </td></tr></table>
   <% end %>
 
@@ -274,9 +274,9 @@
 <a name="map"></a>
 
 <% if @star.lat_d >= 0 %>
-<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://aladin.cds.unistra.fr/AladinLite/?target=<%=h @star.lon_d %>%20<%=h @star.lon_m %>%20<%=h @star.lon_s %>%2B<%=h @star.lat_d %>%20<%=h @star.lat_m %>%20<%=h @star.lat_s %>&fov=0.75&survey=P%2FDSS2%2Fcolor" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<table width="100%"><tr><td><a href="javascript:initialize()" title="recenter">MAP</a> | <a href="https://aladin.cds.unistra.fr/AladinLite/?target=<%=h @star.lon_d %>%20<%=h @star.lon_m %>%20<%=h @star.lon_s %>%2B<%=h @star.lat_d %>%20<%=h @star.lat_m %>%20<%=h @star.lat_s %>&fov=0.75&survey=P%2FDSS2%2Fcolor" title="more images" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();" title="show icons">show</a> | <a href="javascript:clearMarkers();" title="hide icons">hide</a></td></tr></table>
 <% elsif @star.lat_d < 0 %>
-<table width="100%"><tr><td><a href="javascript:initialize()">MAP</a> | <a href="https://aladin.cds.unistra.fr/AladinLite/?target=<%=h @star.lon_d %>%20<%=h @star.lon_m %>%20<%=h @star.lon_s %><%=h @star.lat_d %>%20<%=h @star.lat_m %>%20<%=h @star.lat_s %>&fov=0.75&survey=P%2FDSS2%2Fcolor" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();">show</a> | <a href="javascript:clearMarkers();">hide</a></td></tr></table>
+<table width="100%"><tr><td><a href="javascript:initialize()" title="recenter">MAP</a> | <a href="https://aladin.cds.unistra.fr/AladinLite/?target=<%=h @star.lon_d %>%20<%=h @star.lon_m %>%20<%=h @star.lon_s %><%=h @star.lat_d %>%20<%=h @star.lat_m %>%20<%=h @star.lat_s %>&fov=0.75&survey=P%2FDSS2%2Fcolor" title="more images" target="_sky">SKY</a></td><td align="right">icons: <a href="javascript:showMarkers();" title="show icons">show</a> | <a href="javascript:clearMarkers();" title="hide icons">hide</a></td></tr></table>
 <% end %>
 
 <div id='map_container' style='border: 1px solid silver; width: 100%;'>
@@ -286,190 +286,190 @@
 <table width="100%"><tr>
 <td><b>Constellation:</b>
 <% if @star.const.include?('And') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/AND.gif" target="_map">Andromeda</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AND.gif" title="sky map" target="_map">Andromeda</a>
 <% elsif @star.const.include?('Ant') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/ANT.gif" target="_map">Antlia</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ANT.gif" title="sky map" target="_map">Antlia</a>
 <% elsif @star.const.include?('Aps') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/APS.gif" target="_map">Apus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/APS.gif" title="sky map" target="_map">Apus</a>
 <% elsif @star.const.include?('Aql') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/AQL.gif" target="_map">Aquila</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AQL.gif" title="sky map" target="_map">Aquila</a>
 <% elsif @star.const.include?('Aqr') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/AQR.gif" target="_map">Aquarius</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AQR.gif" title="sky map" target="_map">Aquarius</a>
 <% elsif @star.const.include?('Ara') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/ARA.gif" target="_map">Ara</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ARA.gif" title="sky map" target="_map">Ara</a>
 <% elsif @star.const.include?('Ari') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/ARI.gif" target="_map">Aries</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ARI.gif" title="sky map" target="_map">Aries</a>
 <% elsif @star.const.include?('Aur') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/AUR.gif" target="_map">Auriga</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/AUR.gif" title="sky map" target="_map">Auriga</a>
 <% elsif @star.const.include?('Boo') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/BOO.gif" target="_map">Bo&ouml;tes</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/BOO.gif" title="sky map" target="_map">Bo&ouml;tes</a>
 <% elsif @star.const.include?('CMa') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CMA.gif" target="_map">Canis Major</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CMA.gif" title="sky map" target="_map">Canis Major</a>
 <% elsif @star.const.include?('CMi') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CMI.gif" target="_map">Canis Minor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CMI.gif" title="sky map" target="_map">Canis Minor</a>
 <% elsif @star.const.include?('CVn') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CVN.gif" target="_map">Canes Venatici</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CVN.gif" title="sky map" target="_map">Canes Venatici</a>
 <% elsif @star.const.include?('Cae') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAE.gif" target="_map">Caelum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAE.gif" title="sky map" target="_map">Caelum</a>
 <% elsif @star.const.include?('Cam') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAM.gif" target="_map">Camelopardalis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAM.gif" title="sky map" target="_map">Camelopardalis</a>
 <% elsif @star.const.include?('Cap') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAP.gif" target="_map">Capricornus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAP.gif" title="sky map" target="_map">Capricornus</a>
 <% elsif @star.const.include?('Car') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAR.gif" target="_map">Carina</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAR.gif" title="sky map" target="_map">Carina</a>
 <% elsif @star.const.include?('Cas') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAS.gif" target="_map">Cassiopeia</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CAS.gif" title="sky map" target="_map">Cassiopeia</a>
 <% elsif @star.const.include?('Cen') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CEN.gif" target="_map">Centaurus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CEN.gif" title="sky map" target="_map">Centaurus</a>
 <% elsif @star.const.include?('Cep') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CEP.gif" target="_map">Cepheus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CEP.gif" title="sky map" target="_map">Cepheus</a>
 <% elsif @star.const.include?('Cet') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CET.gif" target="_map">Cetus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CET.gif" title="sky map" target="_map">Cetus</a>
 <% elsif @star.const.include?('Cha') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CHA.gif" target="_map">Chamaeleon</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CHA.gif" title="sky map" target="_map">Chamaeleon</a>
 <% elsif @star.const.include?('Cir') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CIR.gif" target="_map">Circinus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CIR.gif" title="sky map" target="_map">Circinus</a>
 <% elsif @star.const.include?('Cnc') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CNC.gif" target="_map">Cancer</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CNC.gif" title="sky map" target="_map">Cancer</a>
 <% elsif @star.const.include?('Col') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/COL.gif" target="_map">Columba</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/COL.gif" title="sky map" target="_map">Columba</a>
 <% elsif @star.const.include?('Com') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/COM.gif" target="_map">Coma Berenices</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/COM.gif" title="sky map" target="_map">Coma Berenices</a>
 <% elsif @star.const.include?('CrA') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRA.gif" target="_map">Corona Australis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRA.gif" title="sky map" target="_map">Corona Australis</a>
 <% elsif @star.const.include?('CrB') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRB.gif" target="_map">Corona Borealis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRB.gif" title="sky map" target="_map">Corona Borealis</a>
 <% elsif @star.const.include?('Crt') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRT.gif" target="_map">Crater</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRT.gif" title="sky map" target="_map">Crater</a>
 <% elsif @star.const.include?('Cru') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRU.gif" target="_map">Crux</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRU.gif" title="sky map" target="_map">Crux</a>
 <% elsif @star.const.include?('Crv') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRV.gif" target="_map">Corvus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CRV.gif" title="sky map" target="_map">Corvus</a>
 <% elsif @star.const.include?('Cyg') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/CYG.gif" target="_map">Cygnus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/CYG.gif" title="sky map" target="_map">Cygnus</a>
 <% elsif @star.const.include?('Del') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/DEL.gif" target="_map">Delphinus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/DEL.gif" title="sky map" target="_map">Delphinus</a>
 <% elsif @star.const.include?('Dor') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/DOR.gif" target="_map">Dorado</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/DOR.gif" title="sky map" target="_map">Dorado</a>
 <% elsif @star.const.include?('Dra') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/DRA.gif" target="_map">Draco</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/DRA.gif" title="sky map" target="_map">Draco</a>
 <% elsif @star.const.include?('Equ') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/EQU.gif" target="_map">Equuleus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/EQU.gif" title="sky map" target="_map">Equuleus</a>
 <% elsif @star.const.include?('Eri') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/ERI.gif" target="_map">Eridanus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ERI.gif" title="sky map" target="_map">Eridanus</a>
 <% elsif @star.const.include?('For') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/FOR.gif" target="_map">Fornax</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/FOR.gif" title="sky map" target="_map">Fornax</a>
 <% elsif @star.const.include?('Gem') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/GEM.gif" target="_map">Gemini</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/GEM.gif" title="sky map" target="_map">Gemini</a>
 <% elsif @star.const.include?('Gru') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/GRU.gif" target="_map">Grus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/GRU.gif" title="sky map" target="_map">Grus</a>
 <% elsif @star.const.include?('Her') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/HER.gif" target="_map">Hercules</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HER.gif" title="sky map" target="_map">Hercules</a>
 <% elsif @star.const.include?('Hor') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/HOR.gif" target="_map">Horologium</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HOR.gif" title="sky map" target="_map">Horologium</a>
 <% elsif @star.const.include?('Hya') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/HYA.gif" target="_map">Hydra</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HYA.gif" title="sky map" target="_map">Hydra</a>
 <% elsif @star.const.include?('Hyi') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/HYI.gif" target="_map">Hydrus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/HYI.gif" title="sky map" target="_map">Hydrus</a>
 <% elsif @star.const.include?('Ind') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/IND.gif" target="_map">Indus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/IND.gif" title="sky map" target="_map">Indus</a>
 <% elsif @star.const.include?('LMi') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LMI.gif" target="_map">Leo Minor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LMI.gif" title="sky map" target="_map">Leo Minor</a>
 <% elsif @star.const.include?('Lac') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LAC.gif" target="_map">Lacerta</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LAC.gif" title="sky map" target="_map">Lacerta</a>
 <% elsif @star.const.include?('Leo') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LEO.gif" target="_map">Leo</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LEO.gif" title="sky map" target="_map">Leo</a>
 <% elsif @star.const.include?('Lep') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LEP.gif" target="_map">Lepus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LEP.gif" title="sky map" target="_map">Lepus</a>
 <% elsif @star.const.include?('Lib') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LIB.gif" target="_map">Libra</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LIB.gif" title="sky map" target="_map">Libra</a>
 <% elsif @star.const.include?('Lup') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LUP.gif" target="_map">Lupus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LUP.gif" title="sky map" target="_map">Lupus</a>
 <% elsif @star.const.include?('Lyn') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LYN.gif" target="_map">Lynx</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LYN.gif" title="sky map" target="_map">Lynx</a>
 <% elsif @star.const.include?('Lyr') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/LYR.gif" target="_map">Lyra</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/LYR.gif" title="sky map" target="_map">Lyra</a>
 <% elsif @star.const.include?('Men') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/MEN.gif" target="_map">Mensa</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MEN.gif" title="sky map" target="_map">Mensa</a>
 <% elsif @star.const.include?('Mic') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/MIC.gif" target="_map">Microscopium</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MIC.gif" title="sky map" target="_map">Microscopium</a>
 <% elsif @star.const.include?('Mon') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/MON.gif" target="_map">Monoceros</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MON.gif" title="sky map" target="_map">Monoceros</a>
 <% elsif @star.const.include?('Mus') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/MUS.gif" target="_map">Musca</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/MUS.gif" title="sky map" target="_map">Musca</a>
 <% elsif @star.const.include?('Nor') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/NOR.gif" target="_map">Norma</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/NOR.gif" title="sky map" target="_map">Norma</a>
 <% elsif @star.const.include?('Oct') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/OCT.gif" target="_map">Octans</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/OCT.gif" title="sky map" target="_map">Octans</a>
 <% elsif @star.const.include?('Oph') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/OPH.gif" target="_map">Ophiuchus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/OPH.gif" title="sky map" target="_map">Ophiuchus</a>
 <% elsif @star.const.include?('Ori') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/ORI.gif" target="_map">Orion</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/ORI.gif" title="sky map" target="_map">Orion</a>
 <% elsif @star.const.include?('Pav') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PAV.gif" target="_map">Pavo</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PAV.gif" title="sky map" target="_map">Pavo</a>
 <% elsif @star.const.include?('Peg') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PEG.gif" target="_map">Pegasus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PEG.gif" title="sky map" target="_map">Pegasus</a>
 <% elsif @star.const.include?('Per') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PER.gif" target="_map">Perseus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PER.gif" title="sky map" target="_map">Perseus</a>
 <% elsif @star.const.include?('Phe') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PHE.gif" target="_map">Phoenix</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PHE.gif" title="sky map" target="_map">Phoenix</a>
 <% elsif @star.const.include?('Pic') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PIC.gif" target="_map">Pictor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PIC.gif" title="sky map" target="_map">Pictor</a>
 <% elsif @star.const.include?('PsA') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PSA.gif" target="_map">Piscis Austrinus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PSA.gif" title="sky map" target="_map">Piscis Austrinus</a>
 <% elsif @star.const.include?('Psc') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PSC.gif" target="_map">Pisces</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PSC.gif" title="sky map" target="_map">Pisces</a>
 <% elsif @star.const.include?('Pup') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PUP.gif" target="_map">Puppis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PUP.gif" title="sky map" target="_map">Puppis</a>
 <% elsif @star.const.include?('Pyx') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/PYX.gif" target="_map">Pyxis</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/PYX.gif" title="sky map" target="_map">Pyxis</a>
 <% elsif @star.const.include?('Ret') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/RET.gif" target="_map">Reticulum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/RET.gif" title="sky map" target="_map">Reticulum</a>
 <% elsif @star.const.include?('Scl') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCL.gif" target="_map">Sculptor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCL.gif" title="sky map" target="_map">Sculptor</a>
 <% elsif @star.const.include?('Sco') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCO.gif" target="_map">Scorpius</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCO.gif" title="sky map" target="_map">Scorpius</a>
 <% elsif @star.const.include?('Sct') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCT.gif" target="_map">Scutum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SCT.gif" title="sky map" target="_map">Scutum</a>
 <% elsif @star.const.include?('Ser') && @star.lon_d < 17 %>
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SERCP.gif" target="_map">Serpens</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SERCP.gif" title="sky map" target="_map">Serpens</a>
 <% elsif @star.const.include?('Ser') && @star.lon_d >= 17 %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SERCD.gif" target="_map">Serpens</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SERCD.gif" title="sky map" target="_map">Serpens</a>
 <% elsif @star.const.include?('Sex') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SEX.gif" target="_map">Sextans</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SEX.gif" title="sky map" target="_map">Sextans</a>
 <% elsif @star.const.include?('Sge') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SGE.gif" target="_map">Sagitta</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SGE.gif" title="sky map" target="_map">Sagitta</a>
 <% elsif @star.const.include?('Sgr') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/SGR.gif" target="_map">Sagittarius</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/SGR.gif" title="sky map" target="_map">Sagittarius</a>
 <% elsif @star.const.include?('Tau') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/TAU.gif" target="_map">Taurus</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TAU.gif" title="sky map" target="_map">Taurus</a>
 <% elsif @star.const.include?('Tel') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/TEL.gif" target="_map">Telescopium</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TEL.gif" title="sky map" target="_map">Telescopium</a>
 <% elsif @star.const.include?('TrA') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/TRA.gif" target="_map">Triangulum Australe</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TRA.gif" title="sky map" target="_map">Triangulum Australe</a>
 <% elsif @star.const.include?('Tri') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/TRI.gif" target="_map">Triangulum</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TRI.gif" title="sky map" target="_map">Triangulum</a>
 <% elsif @star.const.include?('Tuc') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/TUC.gif" target="_map">Tucana</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/TUC.gif" title="sky map" target="_map">Tucana</a>
 <% elsif @star.const.include?('UMa') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/UMA.gif" target="_map">Ursa Major</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/UMA.gif" title="sky map" target="_map">Ursa Major</a>
 <% elsif @star.const.include?('UMi') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/UMI.gif" target="_map">Ursa Minor</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/UMI.gif" title="sky map" target="_map">Ursa Minor</a>
 <% elsif @star.const.include?('Vel') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/VEL.gif" target="_map">Vela</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VEL.gif" title="sky map" target="_map">Vela</a>
 <% elsif @star.const.include?('Vir') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/VIR.gif" target="_map">Virgo</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VIR.gif" title="sky map" target="_map">Virgo</a>
 <% elsif @star.const.include?('Vol') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/VOL.gif" target="_map">Volans</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VOL.gif" title="sky map" target="_map">Volans</a>
 <% elsif @star.const.include?('Vul') %> 
-<a href="https://iauarchive.eso.org/static/public/constellations/gif/VUL.gif" target="_map">Vulpecula</a>
+<a href="https://iauarchive.eso.org/static/public/constellations/gif/VUL.gif" title="sky map" target="_map">Vulpecula</a>
 <% end %>
 
 </td><td align="right">
 <% if @star.lat_d >= 0 %>
-  [<a href="https://simbad.u-strasbg.fr/simbad/sim-coo?Coord=<%=h @star.lon_d %>+<%=h @star.lon_m %>+<%=h @star.lon_s %>+<%=h @star.lat_d %>+<%=h @star.lat_m %>+<%=h @star.lat_s %>&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=10&Radius.unit=arcsec&submit=submit+query" target="_simbad"><%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s, <%=h @star.lat_sign %><%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"</a>]
+  [<a href="https://simbad.u-strasbg.fr/simbad/sim-coo?Coord=<%=h @star.lon_d %>+<%=h @star.lon_m %>+<%=h @star.lon_s %>+<%=h @star.lat_d %>+<%=h @star.lat_m %>+<%=h @star.lat_s %>&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=10&Radius.unit=arcsec&submit=submit+query" title="more info" target="_simbad"><%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s, <%=h @star.lat_sign %><%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"</a>]
 <% elsif @star.lat_d < 0 %>
-  [<a href="https://simbad.u-strasbg.fr/simbad/sim-coo?Coord=<%=h @star.lon_d %>+<%=h @star.lon_m %>+<%=h @star.lon_s %>+<%=h @star.lat_d %>+<%=h @star.lat_m %>+<%=h @star.lat_s %>&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=10&Radius.unit=arcsec&submit=submit+query" target="_simbad"><%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s, <%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"</a>]
+  [<a href="https://simbad.u-strasbg.fr/simbad/sim-coo?Coord=<%=h @star.lon_d %>+<%=h @star.lon_m %>+<%=h @star.lon_s %>+<%=h @star.lat_d %>+<%=h @star.lat_m %>+<%=h @star.lat_s %>&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=10&Radius.unit=arcsec&submit=submit+query" title="more info" target="_simbad"><%=h @star.lon_d %>h<%=h @star.lon_m %>m<%=h @star.lon_s %>s, <%=h @star.lat_d %>°<%=h @star.lat_m %>'<%=h @star.lat_s %>"</a>]
 <% end %>
 </td></tr></table>
 
